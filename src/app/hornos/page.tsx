@@ -3,6 +3,8 @@
 import Item from "@/components/item";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
+import ImageAspect from "@/components/ImageAspect";
+
 import { useState, useEffect } from "react";
 
 const page = () => {
@@ -46,7 +48,7 @@ const page = () => {
             <img
               src="/images/hornos.jpg"
               className="h-full w-full object-cover object-center"
-              alt=""
+              alt="Hornos"
             />
           </div>
           <div className="text-sm lg:w-1/4">
@@ -78,21 +80,9 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">LEÑA</h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <img
-              src="/images/hornos-lenia-1.jpg"
-              className="object-cover aspect-[5/7]"
-              alt="Hornos Lena"
-            />
-            <img
-              src="/images/hornos-lenia-2.jpg"
-              className="object-cover aspect-[5/7]"
-              alt="Hornos Lena"
-            />
-            <img
-              src="/images/hornos-lenia-3.jpg"
-              className="object-cover aspect-[5/7]"
-              alt="Hornos Lena"
-            />
+            <ImageAspect alt="Hornos" file="/images/hornos-lenia-1.jpg" />
+            <ImageAspect alt="Hornos" file="/images/hornos-lenia-2.jpg" />
+            <ImageAspect alt="Hornos" file="/images/hornos-lenia-3.jpg" />
           </div>
         </article>
 
@@ -101,20 +91,17 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">ANAGAMA</h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <img
-              src="/images/hornos-anagama-1.jpg"
-              className="object-cover aspect-[5/7]"
+            <ImageAspect
               alt="Hornos Anagama"
+              file="/images/hornos-anagama-1.jpg"
             />
-            <img
-              src="/images/hornos-anagama-2.jpg"
-              className="object-cover aspect-[5/7]"
+            <ImageAspect
               alt="Hornos Anagama"
+              file="/images/hornos-anagama-2.jpg"
             />
-            <img
-              src="/images/hornos-anagama-3.jpg"
-              className="object-cover aspect-[5/7]"
+            <ImageAspect
               alt="Hornos Anagama"
+              file="/images/hornos-anagama-3.jpg"
             />
           </div>
         </article>
@@ -127,20 +114,17 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">NOBORIGAMA</h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <img
-              src="/images/hornos-noborigama-1.jpg"
-              className="object-cover aspect-[5/7]"
+            <ImageAspect
               alt="Hornos Noborigama"
+              file="/images/hornos-noborigama-1.jpg"
             />
-            <img
-              src="/images/hornos-noborigama-2.jpg"
-              className="object-cover aspect-[5/7]"
+            <ImageAspect
               alt="Hornos Noborigama"
+              file="/images/hornos-noborigama-2.jpg"
             />
-            <img
-              src="/images/hornos-noborigama-3.jpg"
-              className="object-cover aspect-[5/7]"
+            <ImageAspect
               alt="Hornos Noborigama"
+              file="/images/hornos-noborigama-3.jpg"
             />
           </div>
         </article>

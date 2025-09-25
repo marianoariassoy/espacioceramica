@@ -1,5 +1,6 @@
 import Credits from "@/components/credits";
 import { metadata } from "../layout";
+import Link from "next/link";
 
 metadata.title = "Residencias Espacio Cerámica";
 
@@ -14,15 +15,20 @@ const page = () => {
       </div>
       <div className="lg:w-1/3 flex flex-col text-sm">
         <div className="flex lg:justify-center">
-          <img src="/logo/logo-residencias.svg" alt="Logo" className="h-20" />
+          <img src="/logo/logo-residencias.svg" alt="Logo" className="h-20 " />
         </div>
       </div>
-      <div className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4] overflow-hidden">
-        <img
-          src="/images/residencias.jpg"
-          alt="Imagen"
-          className="h-full w-full object-cover object-center"
-        />
+      <div className="flex lg:w-2/3 ">
+        <Link
+          href="/residencias/voluntariados"
+          className="aspect-[4/5] lg:aspect-[5/4] overflow-hidden"
+        >
+          <img
+            src="/images/residencias.jpg"
+            alt="Residencias"
+            className="h-full w-full object-cover object-center hover:opacity-80 transition-opacity"
+          />
+        </Link>
       </div>
     </section>
   );
