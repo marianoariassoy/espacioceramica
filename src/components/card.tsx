@@ -4,7 +4,7 @@ const card = () => {
   return (
     <article className="flex flex-col gap-y-2">
       <div className="aspect-[5/7] overflow-hidden">
-        <Link href={"/"}>
+        <Link href={"/tienda/tetera-kyusu"}>
           <img
             src="/images/item1.jpg"
             alt="Card"
