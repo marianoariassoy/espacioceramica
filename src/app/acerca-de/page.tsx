@@ -22,7 +22,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="fixed top-12 lg:top-0 py-2 flex z-40 flex-col">
+      <div className="fixed top-12 lg:top-0 py-2 flex z-40 flex-col -mt-1">
         <Item
           title="ESPACIO CERÁMICA"
           active={article === "#espacio-ceramica"}

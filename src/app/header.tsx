@@ -25,7 +25,7 @@ const header = () => {
 
   return (
     <header
-      className="py-2 fixed top-0 text-sm z-30 w-full bg-white"
+      className="py-2 fixed top-0 text-sm z-30 w-full bg-white/50 backdrop-blur"
       id="header"
     >
       <button
