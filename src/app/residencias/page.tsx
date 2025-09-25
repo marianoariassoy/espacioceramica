@@ -7,7 +7,7 @@ metadata.title = "Residencias Espacio Cerámica";
 const page = () => {
   return (
     <section className="flex flex-col lg:items-center lg:flex-row gap-x-12 gap-y-8 pt-10 relative">
-      <div className="absolute top-0 hidden lg:block">
+      <div className="absolute z-50 top-2 hidden lg:block">
         <Credits />
       </div>
       <div className="block lg:hidden">
