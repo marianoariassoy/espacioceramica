@@ -3,11 +3,13 @@
 import Item from "@/components/item";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-import ImageAspect from "@/components/ImageAspect";
-import { useState, useEffect } from "react";
+import ImageModal from "@/components/ImageModal";
+import { useState } from "react";
+import Modal from "@/components/modal";
 
 const page = () => {
   const [article, setArticle] = useState("");
+  const [file, setFile] = useState("");
 
   const goTo = (id: string) => {
     setArticle(id);
@@ -56,14 +58,46 @@ const page = () => {
           className="grid grid-cols-2 lg:grid-cols-4 gap-2  pt-30"
           id="voluntariados"
         >
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-1.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-2.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-3.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-4.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-5.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-6.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-7.jpg" />
-          <ImageAspect alt="Voluntariado" file="/images/voluntariado-8.jpg" />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-1.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-2.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-3.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-4.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-5.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-6.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-7.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-8.jpg"
+          />
         </article>
 
         <article
@@ -76,9 +110,21 @@ const page = () => {
             </h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <ImageAspect alt="Kumo" file="/images/pasantia-1.jpg" />
-            <ImageAspect alt="Kumo" file="/images/pasantia-2.jpg" />
-            <ImageAspect alt="Kumo" file="/images/pasantia-3.jpg" />
+            <ImageModal
+              setFile={setFile}
+              alt="Kumo"
+              file="/images/pasantia-1.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Kumo"
+              file="/images/pasantia-2.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Kumo"
+              file="/images/pasantia-3.jpg"
+            />
           </div>
         </article>
 
@@ -89,15 +135,28 @@ const page = () => {
             </h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <ImageAspect alt="Clementina" file="/images/clementina-1.jpg" />
-            <ImageAspect alt="Clementina" file="/images/clementina-2.jpg" />
-            <ImageAspect alt="Clementina" file="/images/clementina-3.jpg" />
+            <ImageModal
+              setFile={setFile}
+              alt="Clementina"
+              file="/images/clementina-1.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Clementina"
+              file="/images/clementina-2.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Clementina"
+              file="/images/clementina-3.jpg"
+            />
           </div>
         </article>
       </div>
 
       <Nav ig={false} action={() => null} />
       <Footer />
+      {file ? <Modal file={file} setFile={setFile} /> : null}
     </section>
   );
 };

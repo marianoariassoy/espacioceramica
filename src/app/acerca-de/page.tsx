@@ -3,11 +3,13 @@
 import Item from "@/components/item";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-import ImageAspect from "@/components/ImageAspect";
+import ImageModal from "@/components/ImageModal";
 import { useState, useEffect } from "react";
+import Modal from "@/components/modal";
 
 const page = () => {
   const [article, setArticle] = useState("");
+  const [file, setFile] = useState("");
 
   const goTo = (id: string) => {
     setArticle(id);
@@ -51,7 +53,11 @@ const page = () => {
             </h2>
           </div>
           <div className="lg:w-1/2">
-            <ImageAspect alt="Espacio Cerámica" file="/images/acerca-de.jpg" />
+            <img
+              src="/images/acerca-de.jpg"
+              className="object-cover object-center aspect-[5/7]"
+              alt="Espacio Cerámica"
+            />
           </div>
           <div className="text-sm lg:w-1/4 lg:pr-12">
             <p>
@@ -98,11 +104,13 @@ const page = () => {
             </h2>
           </div>
           <div className="lg:w-1/2 grid grid-cols-1 lg:grid-cols-2 gap-2">
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Victoria Drisaldi"
               file="/images/acerca-de-1.jpg"
             />
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Victoria Drisaldi"
               file="/images/acerca-de-2.jpg"
             />
@@ -142,8 +150,16 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">FERNANDO LOPEZ</h2>
           </div>
           <div className="lg:w-1/2 grid grid-cols-1 lg:grid-cols-2 gap-2">
-            <ImageAspect alt="Fernando Lopez" file="/images/acerca-de-3.jpg" />
-            <ImageAspect alt="Fernando Lopez" file="/images/acerca-de-4.jpg" />
+            <ImageModal
+              setFile={setFile}
+              alt="Fernando Lopez"
+              file="/images/acerca-de-3.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Fernando Lopez"
+              file="/images/acerca-de-4.jpg"
+            />
           </div>
           <div className="text-sm lg:w-1/4 flex flex-col gap-y-4 lg:pr-12">
             <a
@@ -175,6 +191,7 @@ const page = () => {
 
       <Nav ig={false} action={() => null} />
       <Footer />
+      {file ? <Modal file={file} setFile={setFile} /> : null}
     </section>
   );
 };

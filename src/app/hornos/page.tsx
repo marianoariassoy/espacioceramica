@@ -3,12 +3,13 @@
 import Item from "@/components/item";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
-import ImageAspect from "@/components/ImageAspect";
-
+import ImageModal from "@/components/ImageModal";
+import Modal from "@/components/modal";
 import { useState, useEffect } from "react";
 
 const page = () => {
   const [article, setArticle] = useState("");
+  const [file, setFile] = useState("");
 
   const goTo = (id: string) => {
     setArticle(id);
@@ -80,9 +81,21 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">LEÑA</h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <ImageAspect alt="Hornos" file="/images/hornos-lenia-1.jpg" />
-            <ImageAspect alt="Hornos" file="/images/hornos-lenia-2.jpg" />
-            <ImageAspect alt="Hornos" file="/images/hornos-lenia-3.jpg" />
+            <ImageModal
+              setFile={setFile}
+              alt="Hornos"
+              file="/images/hornos-lenia-1.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Hornos"
+              file="/images/hornos-lenia-2.jpg"
+            />
+            <ImageModal
+              setFile={setFile}
+              alt="Hornos"
+              file="/images/hornos-lenia-3.jpg"
+            />
           </div>
         </article>
 
@@ -91,15 +104,18 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">ANAGAMA</h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Hornos Anagama"
               file="/images/hornos-anagama-1.jpg"
             />
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Hornos Anagama"
               file="/images/hornos-anagama-2.jpg"
             />
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Hornos Anagama"
               file="/images/hornos-anagama-3.jpg"
             />
@@ -114,15 +130,18 @@ const page = () => {
             <h2 className="text-sm font-[--lastik-regular]">NOBORIGAMA</h2>
           </div>
           <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Hornos Noborigama"
               file="/images/hornos-noborigama-1.jpg"
             />
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Hornos Noborigama"
               file="/images/hornos-noborigama-2.jpg"
             />
-            <ImageAspect
+            <ImageModal
+              setFile={setFile}
               alt="Hornos Noborigama"
               file="/images/hornos-noborigama-3.jpg"
             />
@@ -132,6 +151,7 @@ const page = () => {
 
       <Nav ig={false} action={() => null} />
       <Footer />
+      {file ? <Modal file={file} setFile={setFile} /> : null}
     </section>
   );
 };
