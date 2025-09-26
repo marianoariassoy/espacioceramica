@@ -46,7 +46,7 @@ const page = () => {
               alt="Voluntariados"
             />
           </div>
-          <div className="text-sm lg:w-1/4">
+          <div className="text-sm lg:w-1/4 lg:pr-12">
             <p>
               A lo largo del año recibimos a voluntarios interesados en
               acompañarnos en las distintas etapas del proceso de producción y

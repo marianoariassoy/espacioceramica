@@ -18,11 +18,8 @@ const page = () => {
           <img src="/logo/logo-residencias.svg" alt="Logo" className="h-20 " />
         </div>
       </div>
-      <div className="flex lg:w-2/3 ">
-        <Link
-          href="/residencias/voluntariados"
-          className="aspect-[4/5] lg:aspect-[5/4] overflow-hidden"
-        >
+      <div className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4] overflow-hidden">
+        <Link href="/residencias/voluntariados" className="h-full w-full">
           <img
             src="/images/residencias.jpg"
             alt="Residencias"
