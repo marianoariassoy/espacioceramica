@@ -53,45 +53,37 @@ const page = () => {
           <div className="lg:w-1/2">
             <ImageAspect alt="Espacio Cerámica" file="/images/acerca-de.jpg" />
           </div>
-          <div className="text-sm lg:w-1/4">
+          <div className="text-sm lg:w-1/4 lg:pr-12">
             <p>
-              Espacio cerámica es nuestro taller, un proyecto de búsqueda e
-              investigación que surgió en el 2008, donde reunimos nuestras
-              obsesiones en torno al oficio. Desde el comienzo construimos, a
-              través de la experiencia, nuestra profesión, ampliando y
-              profundizando nuestros conocimientos con cada nueva horneada. Así,
-              todos los espacios que ocupamos se vinculan de algún modo con la
-              cerámica. Actualmente nos encontramos en Gaiman, provincia de
-              Chubut. Llegamos a la Patagonia después de un gran recorrido por
-              el que nos fue conduciendo el hacer, rastreando la materia prima
-              con la que desarrollamos nuestra cerámica de raíz, fuimos del
-              Norte, a Villa Elisa en Buenos Aires, hasta instalarnos en el Sur
-              de nuestro país. Sostenemos una relación de dependencia con el
-              contexto en el que vivimos que se evidencia en la materia y sus
-              procesos. Extraemos y trabajamos la arcilla directa del
-              territorio, las propiedades que encontramos en el caolín de Gaiman
-              nos permiten hornear las piezas a alta temperatura, entre los 1150
-              y 1300 °C. Durante el proceso de quema se manifiesta del mismo
-              modo esta necesidad del cuerpo que hay en el oficio, la forma en
-              la cual estibamos las piezas dentro del horno,y la atención y la
-              escucha que requiere el fuego, porque es este el que nos da los
-              indicios para intencionar la horneada. Es, en todo sentido, un
-              suceso. El anagama y el noborigama, dos tipos de hornos con los
-              que trabajamos y que tienen su origen en Oriente, se encienden una
-              o dos veces al año. Las piezas arden por cien horas y nosotros
-              alimentamos ese fuego. Establecemos la hoja de ruta de la quema,
-              dejando lugar a cierto grado de azar, donde el resultado nunca es
-              dos veces el mismo. El registro matérico de la temperatura y la
-              ceniza en contacto con la arcilla es la cualidad expresiva de
-              nuestras piezas. Nuestro taller es un testimonio vivo de nuestra
-              práctica, que se cruza e intercede con lo cotidiano. Nuestros
-              tiempos están dictados por la cerámica, desde la recolección de la
-              arcilla, su preparación, la producción de las piezas, el acopio de
-              leña, hasta la culminación cuando las retiramos del horno. Todo
-              ello atravesado por el contexto, el paisaje del valle, el río
-              Chubut y los vientos patagónicos. Finalmente, las piezas de
-              Espacio Cerámica llevan consigo el reflejo de estas experiencias
-              como huella permanente.
+              <strong>Espacio Cerámica </strong>
+              es un taller de producción y experimentación de cerámica a leña,
+              fundado en 2008 por los ceramistas Victoria Drisaldi (Buenos
+              Aires) y Fernando López (Rosario). Actualmente se encuentra en
+              Gaiman, en la margen sur del río Chubut, una región árida propia
+              de la estepa patagónica. <br />
+              <br />
+              El taller nació en este entorno rural, donde también se
+              construyeron varios hornos a leña. De este modo, el trabajo se
+              centra especialmente en la quema en horno Anagama —de una sola
+              cámara y diseño oriental—, herramienta ancestral que se
+              resignifica desde una mirada contemporánea, revelando la huella
+              material y la cualidad expresiva de las piezas.
+              <br />
+              <br />
+              La ubicación geográfica del taller responde a esta búsqueda
+              estética consciente, basada en la comunión entre el oficio y el
+              modo de vida que posibilita el contexto. Así, la alfarería se
+              desarrolla con materiales locales, explorando pastas propias y
+              vidriados de alta temperatura a leña.
+              <br />
+              <br />
+              Lo que se crea en Espacio cerámica, nuestros objetos, son
+              producción directa del lugar habitado. Se trata de objetos que
+              sólo pueden haberse hecho acá, en esta región, en esta zona
+              geográfica donde el taller crece y funciona. Entendemos el oficio
+              en su relación inseparable con el territorio, como una manera de
+              habitarlo, cuidarlo, para trabajar la materia, y para darle usos y
+              significaciones nuevas.
             </p>
           </div>
         </article>
@@ -115,7 +107,7 @@ const page = () => {
               file="/images/acerca-de-2.jpg"
             />
           </div>
-          <div className="text-sm lg:w-1/4 flex flex-col gap-y-4">
+          <div className="text-sm lg:w-1/4 flex flex-col gap-y-4 lg:pr-12">
             <a
               href="http://"
               target="_blank"
@@ -153,7 +145,7 @@ const page = () => {
             <ImageAspect alt="Fernando Lopez" file="/images/acerca-de-3.jpg" />
             <ImageAspect alt="Fernando Lopez" file="/images/acerca-de-4.jpg" />
           </div>
-          <div className="text-sm lg:w-1/4 flex flex-col gap-y-4">
+          <div className="text-sm lg:w-1/4 flex flex-col gap-y-4 lg:pr-12">
             <a
               href="http://"
               target="_blank"

@@ -51,7 +51,7 @@ const page = () => {
               alt="Hornos"
             />
           </div>
-          <div className="text-sm lg:w-1/4">
+          <div className="text-sm lg:w-1/4 lg:pr-12">
             <p>
               Estando en Buenos Aires compartimos tres años junto a Im, maestro
               y artesano coreano quien nos introdujo a dos tipos de hornos de

@@ -8,7 +8,7 @@ const Nav = ({ ig, action }: { ig: boolean; action: () => void }) => {
   const pathname = usePathname();
 
   return (
-    <div className="w-full flex flex-col gap-y-20 lg:gap-y-30 pt-2 pb-8 bg-white/50 backdrop-blur">
+    <div className="w-full flex flex-col gap-y-20 lg:gap-y-30 pt-2 pb-8 bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-2">
         <nav>
           <ul className="text-4xl font-[--lastik-regular]">
