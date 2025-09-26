@@ -4,7 +4,6 @@ import Item from "@/components/item";
 import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import ImageAspect from "@/components/ImageAspect";
-
 import { useState, useEffect } from "react";
 
 const page = () => {
@@ -17,13 +16,9 @@ const page = () => {
     article.scrollIntoView({ behavior: "smooth" });
   };
 
-  useEffect(() => {
-    document.title = "Voluntariados y Pasantias Espacio Cerámica";
-  }, []);
-
   return (
     <section>
-      <div className="fixed top-12 lg:top-0 py-2 z-40 flex flex-col -mt-1">
+      <div className="sticky top-1 z-50 flex flex-col  mt-30">
         <Item
           title="Voluntariados"
           active={article === "#voluntariados"}
@@ -36,7 +31,7 @@ const page = () => {
         />
       </div>
 
-      <div className="w-full flex flex-col py-30">
+      <div className="w-full flex flex-col pb-30">
         <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-30">
           <div className="lg:w-1/4"></div>
           <div className="lg:w-1/2">
