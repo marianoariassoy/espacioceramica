@@ -16,7 +16,7 @@ const page = () => {
 
   return (
     <section className="relative">
-      <div className="w-full sticky top-12 flex flex-col mb-40 bg-[#f6f6f7] py-2">
+      <div className="w-full sticky top-12 flex flex-col mb-40 bg-[#f6f6f7] py-2 z-10">
         <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap">
           <Item
             title="Ver Todo"
@@ -54,29 +54,12 @@ const page = () => {
             action={() => setCategory(6)}
           />
           <Item
-            title="Objeto"
+            title="Objetos"
             active={category === 7 ? true : false}
             action={() => setCategory(7)}
           />
         </div>
-        <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap py-1 my-1 lg:my-0 lg:py-0">
-          <Item
-            title="Leña"
-            active={horno === 1 ? true : false}
-            action={() => setHorno(1)}
-          />
-          <Item
-            title="Anagama"
-            active={horno === 2 ? true : false}
-            action={() => setHorno(2)}
-          />
-          <Item
-            title="Noborigama"
-            active={horno === 3 ? true : false}
-            action={() => setHorno(3)}
-          />
-        </div>
-        <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap">
+        <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap my-2 lg:my-0">
           <Item
             title="Fernando López"
             active={autor === 1 ? true : false}
@@ -88,9 +71,23 @@ const page = () => {
             action={() => setAutor(2)}
           />
         </div>
+        <div className="flex gap-x-2 text-sm font-[--lastik-regular]">
+          <div>
+            (
+            <input
+              type="text"
+              className="border-b border-black border-dashed lg:w-64 px-2 focus:outline-none"
+            />
+            )
+          </div>
+
+          <button className="cursor-pointer hover:text-white hover:bg-black">
+            BUSCAR
+          </button>
+        </div>
       </div>
 
-      <div className="border-t border-black pt-4 grid grid-cols-1 lg:grid-cols-4 gap-x-4 gap-y-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 gap-y-8">
         <Card />
         <Card />
         <Card />

@@ -1,7 +1,6 @@
 "use client";
 
 import Item from "@/components/item";
-import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import ImageModal from "@/components/ImageModal";
 import { useState } from "react";
@@ -20,7 +19,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="sticky top-10 flex flex-col w-full bg-[#f6f6f7] py-2">
+      <div className="sticky top-10 flex flex-col w-full bg-[#f6f6f7] py-2 z-10">
         <Item
           title="Voluntariados"
           active={article === "#voluntariados"}
@@ -33,8 +32,8 @@ const page = () => {
         />
       </div>
 
-      <div className="w-full flex flex-col pb-30">
-        <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-30">
+      <div className="w-full flex flex-col pb-20">
+        <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-20">
           <div className="lg:w-1/4"></div>
           <div className="lg:w-1/2">
             <img
@@ -55,7 +54,7 @@ const page = () => {
         </article>
 
         <article
-          className="grid grid-cols-2 lg:grid-cols-4 gap-2  pt-30"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-20"
           id="voluntariados"
         >
           <ImageModal
@@ -101,7 +100,7 @@ const page = () => {
         </article>
 
         <article
-          className="flex flex-col lg:flex-row gap-4 pt-30"
+          className="flex flex-col lg:flex-row gap-4 pt-20"
           id="pasantias"
         >
           <div className="lg:w-1/4">
@@ -128,7 +127,7 @@ const page = () => {
           </div>
         </article>
 
-        <article className="flex flex-col lg:flex-row gap-4 pt-30">
+        <article className="flex flex-col lg:flex-row gap-4 pt-20">
           <div className="lg:w-1/4">
             <h2 className="text-sm font-[--lastik-regular]">
               CLEMENTINA, 2022

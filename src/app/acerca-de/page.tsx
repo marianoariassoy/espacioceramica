@@ -1,7 +1,6 @@
 "use client";
 
 import Item from "@/components/item";
-import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import ImageModal from "@/components/ImageModal";
 import { useState, useEffect } from "react";
@@ -24,7 +23,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="fixed top-12 w-full py-2 flex flex-col bg-[#f6f6f7]">
+      <div className="fixed top-12 w-full py-2 flex flex-col bg-[#f6f6f7] z-10">
         <Item
           title="ESPACIO CERÁMICA"
           active={article === "#espacio-ceramica"}
@@ -44,7 +43,7 @@ const page = () => {
 
       <div className="flex flex-col mt-20">
         <article
-          className="flex flex-col lg:flex-row gap-4 pt-30"
+          className="flex flex-col lg:flex-row gap-4 pt-20"
           id="espacio-ceramica"
         >
           <div className="lg:w-1/4">
@@ -61,12 +60,11 @@ const page = () => {
           </div>
           <div className="text-sm lg:w-1/4 lg:pr-12">
             <p>
-              <strong>Espacio Cerámica </strong>
-              es un taller de producción y experimentación de cerámica a leña,
-              fundado en 2008 por los ceramistas Victoria Drisaldi (Buenos
-              Aires) y Fernando López (Rosario). Actualmente se encuentra en
-              Gaiman, en la margen sur del río Chubut, una región árida propia
-              de la estepa patagónica. <br />
+              Espacio Cerámica es un taller de producción y experimentación de
+              cerámica a leña, fundado en 2008 por los ceramistas Victoria
+              Drisaldi (Buenos Aires) y Fernando López (Rosario). Actualmente se
+              encuentra en Gaiman, en la margen sur del río Chubut, una región
+              árida propia de la estepa patagónica. <br />
               <br />
               El taller nació en este entorno rural, donde también se
               construyeron varios hornos a leña. De este modo, el trabajo se
@@ -95,7 +93,53 @@ const page = () => {
         </article>
 
         <article
-          className="flex flex-col lg:flex-row gap-4 pt-30"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-20"
+          id="voluntariados"
+        >
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-1.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-2.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-3.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-4.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-5.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-6.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-7.jpg"
+          />
+          <ImageModal
+            setFile={setFile}
+            alt="Voluntariado"
+            file="/images/voluntariado-8.jpg"
+          />
+        </article>
+
+        <article
+          className="flex flex-col lg:flex-row gap-4 pt-20"
           id="victoria-drisaldi"
         >
           <div className="lg:w-1/4">
@@ -143,7 +187,7 @@ const page = () => {
         </article>
 
         <article
-          className="flex flex-col lg:flex-row gap-4 pt-30"
+          className="flex flex-col lg:flex-row gap-4 pt-20"
           id="fernando-lopez"
         >
           <div className="lg:w-1/4">

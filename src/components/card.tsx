@@ -14,9 +14,12 @@ const card = () => {
       </div>
       <div className="text-sm flex flex-col gap-y-4 leading-4">
         <h2>Tetera kyusu</h2>
-        <p>
-          Dimensiones <br /> O 44 x A 177 cm <br /> O 17”” x H 68”” <br />
-        </p>
+        <div>
+          <h2>Dimensiones</h2>
+          <span className="font-[--lastik-regular]">
+            &Oslash; 44 x A 177 cm <br /> &Oslash; 17”” x H 68”” <br />
+          </span>
+        </div>
       </div>
     </article>
   );

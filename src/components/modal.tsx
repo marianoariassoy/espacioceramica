@@ -1,12 +1,12 @@
 const modal = ({ file, setFile }: { file: string; setFile: any }) => {
   return (
     <div
-      className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center bg-white/30 p-8 lg:p-12 z-50 cursor-pointer"
+      className="fixed top-0 left-0 h-screen w-screen flex justify-center items-center bg-[#f6f6f7] p-8 lg:p-14 pb-8 z-10 cursor-pointer"
       onClick={() => setFile("")}
     >
       <img src={file} className="h-full w-full object-contain object-center" />
 
-      <button className="absolute top-4 right-4 hover:text-white cursor-pointer">
+      <button className="absolute top-12 right-2 hover:opacity-70 cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

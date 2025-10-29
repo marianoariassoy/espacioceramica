@@ -1,8 +1,9 @@
 "use client";
 
 import Info from "@/components/info";
+import Info2 from "@/components/info2";
+import Envio from "@/components/envio";
 import { useState, useEffect } from "react";
-import Credits from "@/components/credits";
 
 const page = () => {
   const [goToImage, setGoToImage] = useState(1);
@@ -42,28 +43,34 @@ const page = () => {
 
   return (
     <section className="relative">
-      <div className="fixed top-2 hidden lg:block z-50">
-        <Credits />
-      </div>
       <div className="flex flex-col lg:flex-row-reverse pt-30 lg:pt-40 pb-2">
-        <div className="lg:fixed lg:left-6 lg:w-1/3 flex flex-col gap-y-10 lg:gap-y-20 lg:pr-20 pb-8">
-          <h1 className="text-4xl font-[--lastik-regular] uppercase">
+        <div className="lg:fixed lg:left-6 lg:w-2/5 flex flex-col gap-y-10 lg:pr-20 pb-8">
+          <h1 className="text-3xl lg:text-4xl font-[--lastik-regular] uppercase">
             Tetera Kyusu
           </h1>
           <div>
-            <Info title="Tiempo de Entrega" description="6 - 8 semanas" />
-            <Info title="Material" description="Arcilla" />
-            <Info title="Tipo de Horno" description="Anagama, 2022" />
+            <Info title="Detalle" description="Arcilla en Horno Anagama" />
             <Info title="Precio" description="ARS 80,000.00 / USD 1000.00" />
-            <Info
+            <Info title="Autor" description="Victoria Drisaldi" />
+            <Info2
               title="Dimensiones"
-              description={`O 44 x A 177 cm
-O 17”” x H 68””
+              description={`Ø 44 x A 177 cm
+Ø 17”” x H 68””
 Consultar por tamaño a medida`}
             />
+            <div className="flex gap-x-4 mb-2 pb-2 text-sm border-b border-black">
+              <div className="w-1/3"> </div>
+              <div className="w-2/3 font-[--lastik-regular]">
+                <button className="cursor-pointer hover:text-white hover:bg-black">
+                  AGREGAR AL CARRITO
+                </button>
+              </div>
+            </div>
+
+            <Envio />
           </div>
         </div>
-        <div className="lg:w-2/3 flex">
+        <div className="lg:w-3/5 flex">
           <div className="flex-1 flex flex-col gap-y-2 lg:pr-30">
             <div id="image-1">
               <img

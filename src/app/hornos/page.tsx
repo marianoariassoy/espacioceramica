@@ -1,7 +1,6 @@
 "use client";
 
 import Item from "@/components/item";
-import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import ImageModal from "@/components/ImageModal";
 import Modal from "@/components/modal";
@@ -24,7 +23,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="fixed top-12 w-full bg-[#f6f6f7] py-2">
+      <div className="fixed top-12 w-full bg-[#f6f6f7] py-2 z-10">
         <Item
           title="LEÑA"
           active={article === "#lena"}
@@ -42,17 +41,9 @@ const page = () => {
         />
       </div>
 
-      <div className="w-full flex flex-col py-30">
-        <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-30">
-          <div className="lg:w-1/4"></div>
-          <div className="lg:w-1/2">
-            <img
-              src="/images/hornos.jpg"
-              className="h-full w-full object-cover object-center"
-              alt="Hornos"
-            />
-          </div>
-          <div className="text-sm lg:w-1/4 lg:pr-12">
+      <div className="w-full flex flex-col py-20">
+        <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-20">
+          <div className="lg:w-4/12 text-sm lg:pr-20">
             <p>
               Estando en Buenos Aires compartimos tres años junto a Im, maestro
               y artesano coreano quien nos introdujo a dos tipos de hornos de
@@ -61,22 +52,31 @@ const page = () => {
               desarrolla- mos una cerámica de raíz, evitando procesos indus-
               triales. Junto a él aprendimos a construirlos, a prepa- rarlos
               para la quema y a limpiarlos. Fabricamos nues- tra propia
-              herramienta de trabajo y también la cuida- mos. Tanto el Anagama
-              como el Noborigama, donde la diferencia elemental radica en el
-              número de cámaras y la proximidad de la ceniza a las piezas,
-              permiten una horneada a alta temperatura, más allá de los 1200 °C.
-              El tiempo del fuego requiere de una preparación previa. Encendemos
-              los hornos una o dos veces al año, ardiendo por 100 horas, y
-              retirando las piezas cinco días después, el tiempo en que tarda el
-              horno en enfriarse. Este diálogo entre la materialidad y el
-              proceso de quema queda grabado en la cerámica y define su
+              herramienta de trabajo y también la cuida- mos.
+              <br />
+              <br />
+              Tanto el Anagama como el Noborigama, donde la diferencia elemental
+              radica en el número de cámaras y la proximidad de la ceniza a las
+              piezas, permiten una horneada a alta temperatura, más allá de los
+              1200 °C. El tiempo del fuego requiere de una preparación previa.
+              Encendemos los hornos una o dos veces al año, ardiendo por 100
+              horas, y retirando las piezas cinco días después, el tiempo en que
+              tarda el horno en enfriarse. Este diálogo entre la materialidad y
+              el proceso de quema queda grabado en la cerámica y define su
               identidad y carácter, tanto el material como nosotros mismos somos
               sensibilizados por el proceso de fuego.
             </p>
           </div>
+          <div className="lg:w-2/3">
+            <img
+              src="/images/hornos.jpg"
+              className="h-full w-full object-cover object-center"
+              alt="Hornos"
+            />
+          </div>
         </article>
 
-        <article className="flex flex-col lg:flex-row gap-4 pt-30" id="lena">
+        <article className="flex flex-col lg:flex-row gap-4 pt-20" id="lena">
           <div className="lg:w-1/4">
             <h2 className="text-sm font-[--lastik-regular]">LEÑA</h2>
           </div>
@@ -99,7 +99,7 @@ const page = () => {
           </div>
         </article>
 
-        <article className="flex flex-col lg:flex-row gap-4 pt-30" id="anagama">
+        <article className="flex flex-col lg:flex-row gap-4 pt-20" id="anagama">
           <div className="lg:w-1/4">
             <h2 className="text-sm font-[--lastik-regular]">ANAGAMA</h2>
           </div>
@@ -123,7 +123,7 @@ const page = () => {
         </article>
 
         <article
-          className="flex flex-col lg:flex-row gap-4 pt-30"
+          className="flex flex-col lg:flex-row gap-4 pt-20"
           id="noborigama"
         >
           <div className="lg:w-1/4">
