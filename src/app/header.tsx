@@ -1,65 +1,51 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Nav from "@/components/nav";
+import Lan from "@/components/lan";
+import Cart from "@/components/cart";
 
 const header = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-
+  const openMenu = () => {
     const main = document.querySelector("main") as HTMLElement;
-    const header = document.querySelector("#header") as HTMLElement;
+    const nav = document.querySelector("#nav") as HTMLElement;
 
     if (main) {
-      main.style.marginTop = isOpen ? "0" : "450px";
+      main.style.marginTop = "400px";
     }
-    if (header) {
-      header.style.zIndex = isOpen ? "30" : "100";
+    if (nav) {
+      nav.style.top = "0";
     }
   };
 
   return (
     <header
-      className="py-2 fixed top-0 text-sm z-30 w-full bg-white"
+      className="sticky py-2 top-0 z-30 w-full flex items-center justify-between px-4 bg-[#f6f6f7]"
       id="header"
     >
-      <button
-        className="absolute z-50 right-6 top-1 lg:top-0 text-3xl hover:underline cursor-pointer"
-        onClick={toggleMenu}
-      >
-        {isOpen ? "Cerrar" : "Menú"}
-      </button>
-
-      <div className="grid grid-cols-1 gap-y-1 lg:grid-cols-4 px-6">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div>
-          {pathname !== "/" && pathname !== "/residencias" ? (
-            <Link href="/" className="hover:opacity-80 transition-all">
-              <img
-                src="/logo/logo.svg"
-                alt="Logo"
-                className="h-8 -mt-2 lg:mt-0"
-              />
-            </Link>
-          ) : null}
-        </div>
+      <div className="flex-1">
+        <button className="hover:underline cursor-pointer" onClick={openMenu}>
+          Menú
+        </button>
+      </div>
+      <div className="">
+        {pathname !== "/" && pathname !== "/residencias" ? (
+          <Link href="/" className="hover:opacity-80 transition-all">
+            <img src="/logo/logo.svg" alt="Logo" className="h-8" />
+          </Link>
+        ) : null}
+      </div>
+      <div className="flex justify-end items-center gap-x-8 flex-1">
+        <span className="hidden lg:block">
+          <Lan />
+        </span>
+        <Cart />
       </div>
 
-      <div
-        className={`absolute w-full transition-all px-6 ${
-          isOpen ? "top-0" : "top-[-650px]"
-        }`}
-        id="nav"
-      >
-        <Nav ig={true} action={toggleMenu} />
-      </div>
+      <Nav />
     </header>
   );
 };

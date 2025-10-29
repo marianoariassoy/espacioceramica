@@ -1,26 +1,23 @@
-import Credits from "@/components/credits";
+import Link from "next/link";
 
 const page = () => {
   return (
-    <section className="flex flex-col items-start lg:items-center lg:flex-row gap-x-12 gap-y-8 pt-10 relative">
-      <div className="absolute z-50 top-2 hidden lg:block">
-        <Credits />
-      </div>
-      <div className="block lg:hidden">
-        <Credits />
-      </div>
-      <div className="lg:w-1/3 flex flex-col text-sm">
-        <div className="flex lg:justify-center">
+    <section className="flex flex-col items-start lg:items-center lg:flex-row gap-x-12 gap-y-8  relative">
+      <div className="lg:w-1/3">
+        <div className="flex mt-20 lg:mt-0 lg:justify-center">
           <img src="/logo/logo.svg" alt="Logo" className="h-12" />
         </div>
       </div>
-      <div className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4] overflow-hidden">
+      <Link
+        href="/tienda"
+        className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4] overflow-hidden"
+      >
         <img
           src="/images/home.jpg"
           alt="Imagen"
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center hover:opacity-80 transition-all"
         />
-      </div>
+      </Link>
     </section>
   );
 };

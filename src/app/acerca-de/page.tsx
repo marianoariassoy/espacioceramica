@@ -24,7 +24,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="fixed top-12 lg:top-0 py-2 flex z-40 flex-col -mt-1">
+      <div className="fixed top-12 w-full py-2 flex flex-col bg-[#f6f6f7]">
         <Item
           title="ESPACIO CERÁMICA"
           active={article === "#espacio-ceramica"}
@@ -42,7 +42,7 @@ const page = () => {
         />
       </div>
 
-      <div className="flex flex-col py-30">
+      <div className="flex flex-col mt-20">
         <article
           className="flex flex-col lg:flex-row gap-4 pt-30"
           id="espacio-ceramica"
@@ -189,7 +189,6 @@ const page = () => {
         </article>
       </div>
 
-      <Nav ig={false} action={() => null} />
       <Footer />
       {file ? <Modal file={file} setFile={setFile} /> : null}
     </section>

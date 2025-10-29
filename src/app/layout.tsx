@@ -46,10 +46,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${satoshiFont.variable} ${lastikFont.variable} antialiased`}
+        className={`${satoshiFont.variable} ${lastikFont.variable} antialiased `}
+        style={{ backgroundColor: "#f6f6f7" }}
       >
         <Header />
-        <main className="transition-all px-6">{children}</main>
+        <main className="transition-all px-4 ">{children}</main>
       </body>
     </html>
   );

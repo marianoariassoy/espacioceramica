@@ -20,7 +20,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="sticky top-1 z-50 flex flex-col  mt-30">
+      <div className="sticky top-10 flex flex-col w-full bg-[#f6f6f7] py-2">
         <Item
           title="Voluntariados"
           active={article === "#voluntariados"}
@@ -154,7 +154,6 @@ const page = () => {
         </article>
       </div>
 
-      <Nav ig={false} action={() => null} />
       <Footer />
       {file ? <Modal file={file} setFile={setFile} /> : null}
     </section>

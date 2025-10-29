@@ -3,15 +3,31 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { nav } from "@/lib/data";
+import Lan from "@/components/lan";
 
-const Nav = ({ ig, action }: { ig: boolean; action: () => void }) => {
+const Nav = () => {
   const pathname = usePathname();
 
+  const closeMenu = () => {
+    const main = document.querySelector("main") as HTMLElement;
+    const nav = document.querySelector("#nav") as HTMLElement;
+
+    if (main) {
+      main.style.marginTop = "0";
+    }
+    if (nav) {
+      nav.style.top = "-650px";
+    }
+  };
+
   return (
-    <div className="w-full flex flex-col gap-y-20 lg:gap-y-30 pt-2 pb-8 bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-y-2">
+    <div
+      className="absolute left-0 px-4 transition-all w-full py-2 bg-white top-[-650px] flex justify-between z-50 h-[400px]"
+      id="nav"
+    >
+      <div>
         <nav>
-          <ul className="text-4xl font-[--lastik-regular]">
+          <ul className="text-2xl font-[--lastik-regular] flex flex-col leading-6">
             {nav.map((item) => (
               <li key={item.title}>
                 <Link
@@ -19,7 +35,7 @@ const Nav = ({ ig, action }: { ig: boolean; action: () => void }) => {
                   className={`hover:underline uppercase ${
                     pathname === item.url ? "underline" : ""
                   }`}
-                  onClick={action}
+                  onClick={closeMenu}
                 >
                   {item.title}
                 </Link>
@@ -27,86 +43,14 @@ const Nav = ({ ig, action }: { ig: boolean; action: () => void }) => {
             ))}
           </ul>
         </nav>
-        <div></div>
-        <div></div>
-        {ig ? (
-          <div className="flex flex-col text-sm leading-4">
-            <span>Encontranos en</span>
-            <a
-              href="http://"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              @espacioceramica
-            </a>
-          </div>
-        ) : (
-          <div></div>
-        )}
+        <div className="mt-10 lg:hidden">
+          <Lan />
+        </div>
       </div>
-
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4 text-sm max-w-3xl leading-4">
-        <div className="flex flex-col gap-y-2">
-          <span>Espacio Cerámica </span>
-          <div className="flex flex-col">
-            <a
-              href="http://"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              @espacioceramica
-            </a>
-            <a
-              href="mailto:espaciocerámica@gmail.com"
-              className="hover:underline"
-            >
-              espaciocerámica@gmail.com
-            </a>
-          </div>
-          <span>Chubut, Patagonia Argentina.</span>
-        </div>
-        <div className="flex flex-col gap-y-2">
-          <span>Fernando Lopez</span>
-          <div className="flex flex-col">
-            <a
-              href="http://"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              @proyecto___liebre
-            </a>
-            <a
-              href="mailto:fernandolopez@gmail.com"
-              className="hover:underline"
-            >
-              fernandolopez@gmail.com
-            </a>
-          </div>
-          <span>Chubut, Patagonia Argentina.</span>
-        </div>
-        <div className="flex flex-col gap-y-2">
-          <span>Victoria Drisaldi</span>
-          <div className="flex flex-col">
-            <a
-              href="http://"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              @victoriadrisaldi
-            </a>
-            <a
-              href="mailto:mariavictoriadrisaldi@gmail.com"
-              className="hover:underline"
-            >
-              mariavictoriadrisaldi@gmail.com
-            </a>
-          </div>
-          <span>Chubut, Patagonia Argentina.</span>
-        </div>
+      <div>
+        <button className="hover:underline cursor-pointer" onClick={closeMenu}>
+          Cerrar
+        </button>
       </div>
     </div>
   );

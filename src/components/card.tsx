@@ -16,7 +16,6 @@ const card = () => {
         <h2>Tetera kyusu</h2>
         <p>
           Dimensiones <br /> O 44 x A 177 cm <br /> O 17”” x H 68”” <br />
-          Consultar por tamaño a medida
         </p>
       </div>
     </article>

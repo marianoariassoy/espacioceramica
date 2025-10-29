@@ -24,7 +24,7 @@ const page = () => {
 
   return (
     <section>
-      <div className="fixed top-12 lg:top-0 py-2 z-40 flex flex-col -mt-1">
+      <div className="fixed top-12 w-full bg-[#f6f6f7] py-2">
         <Item
           title="LEÑA"
           active={article === "#lena"}
@@ -149,7 +149,6 @@ const page = () => {
         </article>
       </div>
 
-      <Nav ig={false} action={() => null} />
       <Footer />
       {file ? <Modal file={file} setFile={setFile} /> : null}
     </section>
