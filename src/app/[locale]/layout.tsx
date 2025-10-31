@@ -38,7 +38,7 @@ const lastikFont = localFont({
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>; // 👈 params es una promesa
 };
 
 export const metadata: Metadata = {

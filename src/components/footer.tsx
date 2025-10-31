@@ -59,7 +59,7 @@ const footer = () => {
           <span>Espacio Cerámica </span>
           <div className="flex flex-col">
             <a
-              href="http://"
+              href="https://instagram.com/espacioceramica"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -79,7 +79,7 @@ const footer = () => {
           <span>Fernando Lopez</span>
           <div className="flex flex-col">
             <a
-              href="http://"
+              href="https://instagram.com/proyecto___liebre"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -99,7 +99,7 @@ const footer = () => {
           <span>Victoria Drisaldi</span>
           <div className="flex flex-col">
             <a
-              href="http://"
+              href="https://instagram.com/victoriadrisaldi"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -132,7 +132,7 @@ const footer = () => {
         <div className="flex flex-col">
           <span>Encontranos en</span>
           <a
-            href="http://"
+            href="https://instagram.com/espacioceramica"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline"

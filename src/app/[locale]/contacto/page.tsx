@@ -13,7 +13,7 @@ const page = () => {
           <div>Espacio Cerámica</div>
           <div className="flex flex-col">
             <a
-              href="http://"
+              href="https://instagram.com/espacioceramica"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -33,7 +33,7 @@ const page = () => {
           <div>Fernando Lopez</div>
           <div className="flex flex-col">
             <a
-              href="http://"
+              href="https://instagram.com/proyecto___liebre"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -53,7 +53,7 @@ const page = () => {
           <div>Victoria Drisaldi</div>
           <div className="flex flex-col">
             <a
-              href="http://"
+              href="https://instagram.com/victoriadrisaldi"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
