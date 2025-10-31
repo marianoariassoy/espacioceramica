@@ -1,24 +1,32 @@
 import { Link } from "@/i18n/navigation";
+import Image from "@/components/Image";
 
-const card = () => {
+interface data {
+  id: string;
+  image: string;
+  title: string;
+  size: string;
+  category: number;
+  category_2: number;
+  author: number;
+  slug: string;
+}
+
+const card = ({ data, lan }: { data: data; lan: string }) => {
   return (
     <article className="flex flex-col gap-y-2">
       <div className="aspect-[5/7] overflow-hidden">
-        <Link href={"/tienda/tetera-kyusu"}>
-          <img
-            src="/images/item1.jpg"
-            alt="Card"
-            className="h-full w-full object-cover object-center hover:opacity-90 transition-all"
-          />
+        <Link href={"/tienda/" + data.slug}>
+          <Image src={data.image} alt={data.title} />
         </Link>
       </div>
       <div className="text-sm flex flex-col gap-y-4 leading-4">
-        <h2>Tetera kyusu</h2>
+        <h2>{data.title}</h2>
         <div>
-          <h2>Dimensiones</h2>
-          <span className="font-[--lastik-regular]">
-            &Oslash; 44 x A 177 cm <br /> &Oslash; 17”” x H 68”” <br />
-          </span>
+          <h2>{lan === "es" ? "Dimensiones" : "Size"}</h2>
+          <div className="font-[--lastik-regular] whitespace-break-spaces">
+            {data.size}
+          </div>
         </div>
       </div>
     </article>

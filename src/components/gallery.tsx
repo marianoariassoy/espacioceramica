@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Loader from "@/components/loading";
+import Image from "@/components/Image";
 
 interface data {
   id: number;
@@ -39,11 +40,7 @@ const gallery = ({ section, setFile }: { section: number; setFile: any }) => {
             key={item.id}
             onClick={() => setFile(item.image)}
           >
-            <img
-              src={item.image}
-              className="object-cover object-center aspect-[5/7]"
-              alt="Victoria Drisaldi"
-            />
+            <Image src={item.image} alt="Espacio Ceramica" />
           </button>
         );
       })}

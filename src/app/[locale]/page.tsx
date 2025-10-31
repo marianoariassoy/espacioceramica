@@ -1,4 +1,7 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
+import Image from "@/components/Image";
 
 const page = () => {
   return (
@@ -10,13 +13,9 @@ const page = () => {
       </div>
       <Link
         href="/tienda"
-        className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4] overflow-hidden"
+        className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4]"
       >
-        <img
-          src="/images/home.jpg"
-          alt="Imagen"
-          className="h-full w-full object-cover object-center hover:opacity-80 transition-all"
-        />
+        <Image src="/images/home.jpg" alt="Portada Espacio Cerámica" />
       </Link>
     </section>
   );

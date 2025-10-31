@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Modal from "@/components/modal";
 import Loader from "@/components/loading";
 import Gallery from "@/components/gallery";
+import Image from "@/components/Image";
 
 interface data {
   id: string;
@@ -85,11 +86,10 @@ const page = () => {
               ESPACIO CERÁMICA
             </h2>
           </div>
-          <div className="lg:w-1/2">
-            <img
+          <div className="lg:w-1/2 aspect-[5/7]">
+            <Image
               src="/images/acerca-de.jpg"
-              className="object-cover object-center aspect-[5/7]"
-              alt="Espacio Cerámica"
+              alt="Imagen Acerca de Espacio Cerámica"
             />
           </div>
           <div className="text-sm lg:w-1/4 lg:pr-12">
@@ -168,26 +168,18 @@ const page = () => {
               <div className="lg:w-1/2 grid grid-cols-1 lg:grid-cols-2 gap-2">
                 {item.image && (
                   <button
-                    className="hover:opacity-80 cursor-pointer transition-opacity"
+                    className="cursor-pointer aspect-[5/7]"
                     onClick={() => setFile(item.image)}
                   >
-                    <img
-                      src={item.image}
-                      className="object-cover object-center aspect-[5/7]"
-                      alt={item.title}
-                    />
+                    <Image src={item.image} alt={item.title} />
                   </button>
                 )}
                 {item.image_2 && (
                   <button
-                    className="hover:opacity-80 cursor-pointer transition-opacity"
-                    onClick={() => setFile(item.image)}
+                    className="cursor-pointer"
+                    onClick={() => setFile(item.image_2)}
                   >
-                    <img
-                      src={item.image_2}
-                      className="object-cover object-center aspect-[5/7]"
-                      alt={item.title}
-                    />
+                    <Image src={item.image_2} alt={item.title} />
                   </button>
                 )}
               </div>

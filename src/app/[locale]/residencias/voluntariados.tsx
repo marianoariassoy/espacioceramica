@@ -3,11 +3,11 @@
 import { useLocale } from "next-intl";
 import Item from "@/components/item";
 import Footer from "@/components/footer";
-import ImageModal from "@/components/ImageModal";
 import Modal from "@/components/modal";
 import Gallery from "@/components/gallery";
 import { useState, useEffect } from "react";
 import Loader from "@/components/loading";
+import Image from "@/components/Image";
 
 interface image {
   id: number;
@@ -78,11 +78,7 @@ const page = () => {
         <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-20">
           <div className="lg:w-1/4"></div>
           <div className="lg:w-1/2">
-            <img
-              src="/images/voluntariados.jpg"
-              className="h-full w-full object-cover object-center"
-              alt="Voluntariados"
-            />
+            <Image src="/images/voluntariados.jpg" alt="Voluntariados" />
           </div>
           <div className="text-sm lg:w-1/4 lg:pr-12">
             {locale === "es" ? (
@@ -122,15 +118,11 @@ const page = () => {
                 {item.images.map((image: image) => {
                   return (
                     <button
-                      className="hover:opacity-80 cursor-pointer transition-opacity"
+                      className="cursor-pointer aspect-[5/7]"
                       onClick={() => setFile(image.image)}
                       key={image.id}
                     >
-                      <img
-                        src={image.image}
-                        className="object-cover object-center aspect-[5/7]"
-                        alt={item.title}
-                      />
+                      <Image src={image.image} alt={item.title} />
                     </button>
                   );
                 })}

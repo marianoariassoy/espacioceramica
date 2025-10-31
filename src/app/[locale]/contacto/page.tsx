@@ -1,12 +1,17 @@
-import { metadata } from "../layout";
+"use client";
 
-metadata.title = "Contacto Espacio Cerámica";
+import Image from "@/components/Image";
+import { useEffect } from "react";
 
 const page = () => {
+  useEffect(() => {
+    document.title = "Contacto Espacio Cerámica";
+  }, []);
+
   return (
     <section className="pt-40 pb-4 grid grid-cols-1 lg:grid-cols-2 gap-x-30 gap-y-8">
-      <div>
-        <img src="/images/ellos.jpg" className="w-full" alt="Ellos" />
+      <div className="aspect-[7/5]">
+        <Image src="/images/ellos.jpg" alt="Ellos" />
       </div>
       <div className="text-sm flex flex-col gap-y-4">
         <article className="grid grid-cols-2 gap-4">

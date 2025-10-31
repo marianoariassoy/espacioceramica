@@ -1,18 +1,68 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import Item from "@/components/item";
 import { useState, useEffect } from "react";
 import Card from "@/components/card";
 import Footer from "@/components/footer";
+import Loader from "@/components/loading";
+
+interface data {
+  id: string;
+  image: string;
+  title: string;
+  size: string;
+  category: number;
+  category_2: number;
+  author: number;
+  slug: string;
+}
 
 const page = () => {
+  const locale = useLocale();
+  const [data, setData] = useState<data[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [dataFilter, setDataFilter] = useState<data[]>([]);
   const [category, setCategory] = useState(0);
-  const [horno, setHorno] = useState(0);
   const [autor, setAutor] = useState(0);
+  const apiURL = process.env.NEXT_PUBLIC_API_URL + "/products/" + locale;
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(apiURL);
+        if (!res.ok) throw new Error("Error al obtener datos");
+        const data = await res.json();
+        setData(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getData();
+  }, []);
 
   useEffect(() => {
     document.title = "Tienda Espacio Cerámica";
   }, []);
+
+  useEffect(() => {
+    if (category === 0) {
+      setDataFilter(data);
+    } else if (autor === 0) {
+      setDataFilter(data.filter((item: data) => item.category === category));
+    } else {
+      setDataFilter(
+        data.filter(
+          (item: data) => item.category === category && item.author === autor
+        )
+      );
+    }
+  }, [data, category, autor]);
+
+  if (loading) return <Loader />;
 
   return (
     <section className="relative">
@@ -88,20 +138,9 @@ const page = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 gap-y-8">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        {dataFilter.map((item: data) => (
+          <Card key={item.id} data={item} lan={locale} />
+        ))}
       </div>
 
       <Footer />

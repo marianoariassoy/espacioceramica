@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { useState, useEffect } from "react";
 import Modal from "@/components/modal";
 import Loader from "@/components/loading";
+import Image from "@/components/Image";
 
 interface image {
   id: number;
@@ -124,11 +125,7 @@ const page = () => {
             )}
           </div>
           <div className="lg:w-2/3">
-            <img
-              src="/images/hornos.jpg"
-              className="h-full w-full object-cover object-center"
-              alt="Hornos"
-            />
+            <Image src="/images/hornos.jpg" alt="Hornos" />
           </div>
         </article>
 
@@ -148,15 +145,11 @@ const page = () => {
                 {item.images.map((image: image) => {
                   return (
                     <button
-                      className="hover:opacity-80 cursor-pointer transition-opacity"
+                      className="cursor-pointer aspect-[5/7]"
                       onClick={() => setFile(image.image)}
                       key={image.id}
                     >
-                      <img
-                        src={image.image}
-                        className="object-cover object-center aspect-[5/7]"
-                        alt={item.title}
-                      />
+                      <Image src={image.image} alt={item.title} />
                     </button>
                   );
                 })}
