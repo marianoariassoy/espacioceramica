@@ -24,7 +24,7 @@ const page = () => {
   const locale = useLocale();
   const [data, setData] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
-  const [article, setArticle] = useState("");
+  const [article, setArticle] = useState("#voluntariados");
   const [file, setFile] = useState("");
   const apiURL = process.env.NEXT_PUBLIC_API_URL + "/residences/" + locale;
 
@@ -75,7 +75,10 @@ const page = () => {
       </div>
 
       <div className="w-full flex flex-col">
-        <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-20">
+        <article
+          className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-20"
+          id="voluntariados"
+        >
           <div className="lg:w-1/4"></div>
           <div className="lg:w-1/2">
             <Image src="/images/voluntariados.jpg" alt="Voluntariados" />
@@ -102,34 +105,35 @@ const page = () => {
 
         <Gallery section={2} setFile={setFile} />
 
-        {data.map((item: data, index: number) => {
-          return (
-            <article
-              key={item.id}
-              className="flex flex-col lg:flex-row gap-4 pt-20"
-              id={`article-${index}`}
-            >
-              <div className="lg:w-1/4">
-                <h2 className="text-sm font-[--lastik-regular] uppercase">
-                  {item.title}
-                </h2>
-              </div>
-              <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
-                {item.images.map((image: image) => {
-                  return (
-                    <button
-                      className="cursor-pointer aspect-[5/7]"
-                      onClick={() => setFile(image.image)}
-                      key={image.id}
-                    >
-                      <Image src={image.image} alt={item.title} />
-                    </button>
-                  );
-                })}
-              </div>
-            </article>
-          );
-        })}
+        <section id="pasantias">
+          {data.map((item: data, index: number) => {
+            return (
+              <article
+                key={item.id}
+                className="flex flex-col lg:flex-row gap-4 pt-20"
+              >
+                <div className="lg:w-1/4">
+                  <h2 className="text-sm font-[--lastik-regular] uppercase">
+                    {item.title}
+                  </h2>
+                </div>
+                <div className="lg:w-3/4 grid grid-cols-1 lg:grid-cols-3 gap-2">
+                  {item.images.map((image: image) => {
+                    return (
+                      <button
+                        className="cursor-pointer aspect-[5/7]"
+                        onClick={() => setFile(image.image)}
+                        key={image.id}
+                      >
+                        <Image src={image.image} alt={item.title} />
+                      </button>
+                    );
+                  })}
+                </div>
+              </article>
+            );
+          })}
+        </section>
       </div>
 
       <Footer />
