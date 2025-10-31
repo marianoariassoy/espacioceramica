@@ -1,28 +1,56 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { nav } from "@/lib/data";
+import { Link, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const footer = () => {
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
 
   return (
     <div className="flex flex-col gap-y-20 mt-40">
       <nav className="mb-20">
         <ul className="text-2xl font-[--lastik-regular] flex flex-col leading-6">
-          {nav.map((item) => (
-            <li key={item.title}>
-              <Link
-                href={item.url}
-                className={`hover:underline uppercase ${
-                  pathname === item.url ? "underline" : ""
-                }`}
-              >
-                {item.title}
-              </Link>
-            </li>
-          ))}
+          <Link
+            href="/acerca-de"
+            className={`hover:underline uppercase ${
+              pathname === "/acerca-de" ? "underline" : ""
+            }`}
+          >
+            {t("title-1")}
+          </Link>
+          <Link
+            href="/tienda"
+            className={`hover:underline uppercase ${
+              pathname === "/tienda" ? "underline" : ""
+            }`}
+          >
+            {t("title-2")}
+          </Link>
+          <Link
+            href="/residencias"
+            className={`hover:underline uppercase ${
+              pathname === "/residencias" ? "underline" : ""
+            }`}
+          >
+            {t("title-3")}
+          </Link>
+          <Link
+            href="/hornos"
+            className={`hover:underline uppercase ${
+              pathname === "/hornos" ? "underline" : ""
+            }`}
+          >
+            {t("title-4")}
+          </Link>
+          <Link
+            href="/contacto"
+            className={`hover:underline uppercase ${
+              pathname === "/contacto" ? "underline" : ""
+            }`}
+          >
+            {t("title-5")}
+          </Link>
         </ul>
       </nav>
 

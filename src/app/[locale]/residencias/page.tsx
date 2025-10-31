@@ -1,7 +1,4 @@
-import { metadata } from "../layout";
-import Link from "next/link";
 import Voluntariados from "./voluntariados";
-metadata.title = "Residencias Espacio Cerámica";
 
 const page = () => {
   return (

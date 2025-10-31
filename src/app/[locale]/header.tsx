@@ -1,13 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import Nav from "@/components/nav";
 import Lan from "@/components/lan";
-import Cart from "@/components/cart";
+// import Cart from "@/components/cart";
+import { useTranslations } from "next-intl";
 
 const header = () => {
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
 
   const openMenu = () => {
     const main = document.querySelector("main") as HTMLElement;
@@ -28,7 +29,7 @@ const header = () => {
     >
       <div className="flex-1">
         <button className="hover:underline cursor-pointer" onClick={openMenu}>
-          Menú
+          {t("menu")}
         </button>
       </div>
       <div className="">
@@ -42,7 +43,7 @@ const header = () => {
         <span className="hidden lg:block">
           <Lan />
         </span>
-        <Cart />
+        <div>{t("cart")}</div>
       </div>
 
       <Nav />

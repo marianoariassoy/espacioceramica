@@ -1,12 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { nav } from "@/lib/data";
+import { Link, usePathname } from "@/i18n/navigation";
 import Lan from "@/components/lan";
+import { useTranslations } from "next-intl";
 
 const Nav = () => {
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
 
   const closeMenu = () => {
     const main = document.querySelector("main") as HTMLElement;
@@ -28,19 +28,51 @@ const Nav = () => {
       <div>
         <nav>
           <ul className="text-2xl font-[--lastik-regular] flex flex-col leading-6">
-            {nav.map((item) => (
-              <li key={item.title}>
-                <Link
-                  href={item.url}
-                  className={`hover:underline uppercase ${
-                    pathname === item.url ? "underline" : ""
-                  }`}
-                  onClick={closeMenu}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
+            <Link
+              href="/acerca-de"
+              className={`hover:underline uppercase ${
+                pathname === "/acerca-de" ? "underline" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              {t("title-1")}
+            </Link>
+            <Link
+              href="/tienda"
+              className={`hover:underline uppercase ${
+                pathname === "/tienda" ? "underline" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              {t("title-2")}
+            </Link>
+            <Link
+              href="/residencias"
+              className={`hover:underline uppercase ${
+                pathname === "/residencias" ? "underline" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              {t("title-3")}
+            </Link>
+            <Link
+              href="/hornos"
+              className={`hover:underline uppercase ${
+                pathname === "/hornos" ? "underline" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              {t("title-4")}
+            </Link>
+            <Link
+              href="/contacto"
+              className={`hover:underline uppercase ${
+                pathname === "/contacto" ? "underline" : ""
+              }`}
+              onClick={closeMenu}
+            >
+              {t("title-5")}
+            </Link>
           </ul>
         </nav>
         <div className="mt-10 lg:hidden">
@@ -49,7 +81,7 @@ const Nav = () => {
       </div>
       <div>
         <button className="hover:underline cursor-pointer" onClick={closeMenu}>
-          Cerrar
+          {t("close")}
         </button>
       </div>
     </div>
