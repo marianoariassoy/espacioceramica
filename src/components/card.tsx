@@ -2,7 +2,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "@/components/Image";
 
 interface data {
-  id: string;
+  id: number;
   image: string;
   title: string;
   size: string;

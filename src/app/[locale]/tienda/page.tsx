@@ -8,7 +8,7 @@ import Footer from "@/components/footer";
 import Loader from "@/components/loading";
 
 interface data {
-  id: string;
+  id: number;
   image: string;
   title: string;
   size: string;
@@ -18,14 +18,34 @@ interface data {
   slug: string;
 }
 
+interface author {
+  id: number;
+  title: string;
+}
+
+interface category {
+  id: number;
+  title: string;
+}
+
 const page = () => {
   const locale = useLocale();
   const [data, setData] = useState<data[]>([]);
   const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState<category[]>([]);
+  const [loadingCategories, setLoadingCategories] = useState(true);
+  const [authors, setAuthors] = useState<author[]>([]);
+  const [loadingAuthors, setLoadingAuthors] = useState(true);
+
   const [dataFilter, setDataFilter] = useState<data[]>([]);
   const [category, setCategory] = useState(0);
-  const [autor, setAutor] = useState(0);
+  const [author, setAuthor] = useState(0);
+  const [search, setSearch] = useState("");
+
   const apiURL = process.env.NEXT_PUBLIC_API_URL + "/products/" + locale;
+  const apiURLCategories =
+    process.env.NEXT_PUBLIC_API_URL + "/categories/" + locale;
+  const apiURLAuthors = process.env.NEXT_PUBLIC_API_URL + "/authors";
 
   useEffect(() => {
     async function getData() {
@@ -41,26 +61,68 @@ const page = () => {
       }
     }
 
-    getData();
-  }, []);
+    async function getCategories() {
+      try {
+        const res = await fetch(apiURLCategories);
+        if (!res.ok) throw new Error("Error al obtener datos");
+        const data = await res.json();
+        setCategories(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingCategories(false);
+      }
+    }
 
-  useEffect(() => {
+    async function getAuthors() {
+      try {
+        const res = await fetch(apiURLAuthors);
+        if (!res.ok) throw new Error("Error al obtener datos");
+        const data = await res.json();
+        setAuthors(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoadingAuthors(false);
+      }
+    }
+
     document.title = "Tienda Espacio Cerámica";
+
+    getData();
+    getCategories();
+    getAuthors();
   }, []);
 
   useEffect(() => {
-    if (category === 0) {
-      setDataFilter(data);
-    } else if (autor === 0) {
-      setDataFilter(data.filter((item: data) => item.category === category));
-    } else {
+    if (search) {
       setDataFilter(
         data.filter(
-          (item: data) => item.category === category && item.author === autor
+          (item: data) =>
+            item.title.toLowerCase().includes(search.toLowerCase()) ||
+            item.size.toLowerCase().includes(search.toLowerCase())
         )
       );
     }
-  }, [data, category, autor]);
+    if (category) {
+      setDataFilter(data.filter((item: data) => item.category === category));
+    }
+    if (author) {
+      setDataFilter(data.filter((item: data) => item.author === author));
+    }
+  }, [search]);
+
+  useEffect(() => {
+    if (category === 0 && author === 0) {
+      setDataFilter(data);
+    }
+    if (category) {
+      setDataFilter(data.filter((item: data) => item.category === category));
+    }
+    if (author) {
+      setDataFilter(data.filter((item: data) => item.author === author));
+    }
+  }, [data, category, author]);
 
   if (loading) return <Loader />;
 
@@ -69,70 +131,50 @@ const page = () => {
       <div className="w-full sticky top-12 flex flex-col mb-40 bg-[#f6f6f7] py-2 z-10">
         <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap">
           <Item
-            title="Ver Todo"
+            title={locale === "es" ? "Ver Todo" : "All"}
             active={category === 0 ? true : false}
             action={() => setCategory(0)}
           />
-          <Item
-            title="Teteras"
-            active={category === 1 ? true : false}
-            action={() => setCategory(1)}
-          />
-          <Item
-            title="Vajilla"
-            active={category === 2 ? true : false}
-            action={() => setCategory(2)}
-          />
-          <Item
-            title="Jarrones"
-            active={category === 3 ? true : false}
-            action={() => setCategory(3)}
-          />
-          <Item
-            title="Floreros"
-            active={category === 4 ? true : false}
-            action={() => setCategory(4)}
-          />
-          <Item
-            title="Vajilla de Té"
-            active={category === 5 ? true : false}
-            action={() => setCategory(5)}
-          />
-          <Item
-            title="Botellas"
-            active={category === 6 ? true : false}
-            action={() => setCategory(6)}
-          />
-          <Item
-            title="Objetos"
-            active={category === 7 ? true : false}
-            action={() => setCategory(7)}
-          />
+          {loadingCategories
+            ? null
+            : categories.map((item: category) => {
+                return (
+                  <Item
+                    key={item.id}
+                    title={item.title}
+                    active={category === item.id ? true : false}
+                    action={() => setCategory(item.id)}
+                  />
+                );
+              })}
         </div>
         <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap my-2 lg:my-0">
-          <Item
-            title="Fernando López"
-            active={autor === 1 ? true : false}
-            action={() => setAutor(1)}
-          />
-          <Item
-            title="Victoria Drisaldi"
-            active={autor === 2 ? true : false}
-            action={() => setAutor(2)}
-          />
+          {loadingAuthors
+            ? null
+            : authors.map((item: author) => {
+                return (
+                  <Item
+                    key={item.id}
+                    title={item.title}
+                    active={author === item.id ? true : false}
+                    action={() => setAuthor(item.id)}
+                  />
+                );
+              })}
         </div>
         <div className="flex gap-x-2 text-sm font-[--lastik-regular]">
           <div>
             (
             <input
               type="text"
+              value={search}
               className="border-b border-black border-dashed lg:w-64 px-2 focus:outline-none"
+              onChange={(e) => setSearch(e.target.value)}
             />
             )
           </div>
-
           <button className="cursor-pointer hover:text-white hover:bg-black">
-            BUSCAR
+            {locale === "es" ? "BUSCAR" : "SEARCH"}
           </button>
         </div>
       </div>
