@@ -7,6 +7,7 @@ import { Metadata } from "next";
 import Header from "./header";
 import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 // import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 const initialOptions = {
@@ -77,6 +78,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <NextIntlClientProvider locale={locale} messages={messages}>
           <CartProvider>
             <Header />
+            <CartDrawer />
             <main className="transition-all px-4">{children}</main>
           </CartProvider>
         </NextIntlClientProvider>

@@ -12,6 +12,7 @@
   "Cart": {
     "title": "Shopping Cart",
     "order": "Order Summary",
+    "info": "Personal Information",
     "total": "Total",
     "remove": "Remove",
     "add": "Add to cart",
@@ -29,6 +30,7 @@
     "emailPlaceholder": "Email address",
     "step": "Continue",
     "paypal": "Pay with PayPal",
-    "notifications": "You'll receive receipts and notifications at this email"
+    "notifications": "You'll receive receipts and notifications at this email",
+    "close": "Close"
   }
 }

@@ -8,7 +8,6 @@ import { useParams } from "next/navigation";
 import Loader from "@/components/loading";
 import Image from "@/components/Image";
 import { useCart } from "@/context/CartContext";
-import { useRouter } from "@/i18n/navigation";
 
 interface image {
   id: number;
@@ -41,7 +40,6 @@ const page = () => {
   const apiURL =
     process.env.NEXT_PUBLIC_API_URL + "/product/" + slug + "/" + locale;
   const { addItem } = useCart();
-  const router = useRouter();
 
   useEffect(() => {
     async function getData() {
@@ -98,7 +96,9 @@ const page = () => {
 
   const handleAddToCart = (data: data) => {
     addItem({ ...data, quantity: 1 });
-    router.push("/carrito");
+    const cart = document.querySelector("#cart") as HTMLElement;
+    if (!cart) return;
+    cart.style.right = "0";
   };
 
   return (
@@ -122,10 +122,10 @@ const page = () => {
             />
             <div className="flex gap-x-4 mb-2 pb-2 text-sm border-b border-black">
               <div className="w-1/3"> </div>
-              <div className="w-2/3 font-[--lastik-regular] ">
+              <div className="w-2/3 font-[--lastik-regular]">
                 {data.stock > 0 ? (
                   <button
-                    className="cursor-pointer bg-black text-white p-2 border border-black hover:text-black hover:bg-white uppercase"
+                    className="cursor-pointer bg-black text-white p-3 border border-black hover:text-black hover:bg-white uppercase"
                     onClick={() => handleAddToCart(data)}
                   >
                     {t("add")}

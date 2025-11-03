@@ -4,7 +4,7 @@ const button = ({ label, href }: { label: string; href: string }) => {
   return (
     <Link
       href={href}
-      className="bg-black text-white p-2 uppercase font-medium text-sm border hover:bg-white hover:text-black flex justify-center items-center"
+      className="bg-black text-white p-3 uppercase text-sm border hover:bg-white hover:text-black flex justify-center items-center font-[--lastik-regular]"
     >
       {label}
     </Link>

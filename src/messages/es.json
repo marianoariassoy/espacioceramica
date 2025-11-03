@@ -12,6 +12,7 @@
   "Cart": {
     "title": "Carrito de compras",
     "order": "Resumen del pedido",
+    "info": "Datos personales",
     "total": "Total",
     "remove": "Eliminar",
     "add": "Agregar al carrito",
@@ -22,13 +23,14 @@
     "description": "Detalle",
     "empty": "El carrito está vacío.",
     "continue": "Continuar comprando",
-    "checkout": "Pagar",
+    "checkout": "Finalizar pedido",
     "withoutStock": "Sin stock",
     "delivery": "Detalles de entrega",
     "email": "Tu email",
     "emailPlaceholder": "Dirección de email",
     "step": "Continuar",
     "paypal": "Pagar con PayPal",
-    "notifications": "Recibirás recibos y notificaciones en esta dirección de email"
+    "notifications": "Recibirás recibos y notificaciones en esta dirección de email",
+    "close": "Cerrar"
   }
 }
