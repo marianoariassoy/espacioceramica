@@ -17,7 +17,7 @@ const Page = () => {
   }
 
   return (
-    <section className="flex flex-col-reverse lg:flex-row items-stretch gap-y-8 gap-x-12 h-full">
+    <section className="flex flex-col-reverse lg:flex-row items-stretch gap-4 h-full max-w-5xl m-auto">
       <div className="lg:w-3/5 flex flex-col gap-y-8">
         <h1 className="text-xl font-[--lastik-regular] uppercase">
           {t("title")}
