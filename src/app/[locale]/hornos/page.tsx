@@ -73,8 +73,15 @@ const page = () => {
       </div>
 
       <div className="w-full flex flex-col pt-20">
-        <article className="flex flex-col justify-start items-start lg:flex-row gap-4 pt-20">
-          <div className="lg:w-4/12 text-sm lg:pr-20">
+        <article
+          className="flex flex-col lg:flex-row gap-4 pt-20"
+          id="article-0"
+        >
+          <div className="lg:w-1/4"></div>
+          <div className="lg:w-1/2 aspect-[5/7]">
+            <Image src="/images/hornos.jpg" alt="Hornos" />
+          </div>
+          <div className="text-sm lg:w-1/4 lg:pr-12">
             {locale === "es" ? (
               <p>
                 Estando en Buenos Aires compartimos tres años junto a Im,
@@ -123,9 +130,6 @@ const page = () => {
                 are sensitive to the process of fire.
               </p>
             )}
-          </div>
-          <div className="lg:w-2/3">
-            <Image src="/images/hornos.jpg" alt="Hornos" />
           </div>
         </article>
 

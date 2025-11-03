@@ -16,6 +16,7 @@ interface data {
   title: string;
   text: string;
   ig: string;
+  file: string;
 }
 
 const page = () => {
@@ -25,6 +26,8 @@ const page = () => {
   const [article, setArticle] = useState("#article-0");
   const [file, setFile] = useState("");
   const apiURL = process.env.NEXT_PUBLIC_API_URL + "/about/" + locale;
+
+  console.log(data);
 
   useEffect(() => {
     async function getData() {
@@ -193,6 +196,16 @@ const page = () => {
                   @{item.ig}
                 </a>
                 <p className="whitespace-break-spaces">{item.text}</p>
+                {item.file ? (
+                  <a
+                    href={item.file}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline italic hover:opacity-70 "
+                  >
+                    {locale === "es" ? "Descargar CV" : "Download CV"}
+                  </a>
+                ) : null}
               </div>
             </article>
           );

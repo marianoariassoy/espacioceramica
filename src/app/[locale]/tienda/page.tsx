@@ -168,7 +168,7 @@ const page = () => {
             <input
               type="text"
               value={search}
-              className="border-b border-black border-dashed lg:w-64 px-2 focus:outline-none"
+              className="border-b border-black lg:w-64 px-2 focus:outline-none"
               onChange={(e) => setSearch(e.target.value)}
             />
             )
