@@ -1,6 +1,5 @@
 "use client";
-
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Info from "@/components/info";
 import Info2 from "@/components/info2";
 import Envio from "@/components/envio";
@@ -8,6 +7,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Loader from "@/components/loading";
 import Image from "@/components/Image";
+import { useCart } from "@/context/CartContext";
+import { useRouter } from "@/i18n/navigation";
 
 interface image {
   id: number;
@@ -21,21 +22,26 @@ interface data {
   text: string;
   text_2: string;
   size: string;
-  price_ars: string;
-  price_usd: string;
+  price_ars: number;
+  price_usd: number;
   author: string;
   availability: boolean;
   images: image[];
+  stock: number;
+  slug: string;
 }
 
 const page = () => {
   const locale = useLocale();
+  const t = useTranslations("Cart");
   const [data, setData] = useState<data>();
   const [loading, setLoading] = useState(true);
   const [goToImage, setGoToImage] = useState(1);
   const { slug } = useParams();
   const apiURL =
     process.env.NEXT_PUBLIC_API_URL + "/product/" + slug + "/" + locale;
+  const { addItem } = useCart();
+  const router = useRouter();
 
   useEffect(() => {
     async function getData() {
@@ -90,6 +96,11 @@ const page = () => {
     image.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleAddToCart = (data: data) => {
+    addItem({ ...data, quantity: 1 });
+    router.push("/carrito");
+  };
+
   return (
     <section className="relative">
       <div className="flex flex-col lg:flex-row-reverse pt-30 lg:pt-40 pb-2">
@@ -98,30 +109,34 @@ const page = () => {
             {data.title}
           </h1>
           <div>
-            <Info title="Detalle" description={data.text} />
+            <Info title={t("description")} description={data.text} />
             <Info
-              title="Precio"
+              title={t("price")}
               description={"ARS " + data.price_ars + " / USD " + data.price_usd}
             />
-            <Info
-              title={locale === "es" ? "Autor" : "Author"}
-              description={data.author}
-            />
+            <Info title={t("author")} description={data.author} />
             <Info2
-              title={locale === "es" ? "Dimensiones" : "Size"}
+              title={t("size")}
               description={data.size}
               text={data.text_2}
             />
             <div className="flex gap-x-4 mb-2 pb-2 text-sm border-b border-black">
               <div className="w-1/3"> </div>
-              <div className="w-2/3 font-[--lastik-regular]">
-                <button className="cursor-pointer hover:text-white hover:bg-black">
-                  {locale === "es" ? "AGREGAR AL CARRITO" : "ADD TO CART"}
-                </button>
+              <div className="w-2/3 font-[--lastik-regular] ">
+                {data.stock > 0 ? (
+                  <button
+                    className="cursor-pointer bg-black text-white p-2 border border-black hover:text-black hover:bg-white uppercase"
+                    onClick={() => handleAddToCart(data)}
+                  >
+                    {t("add")}
+                  </button>
+                ) : (
+                  <span className="uppercase">{t("withoutStock")}</span>
+                )}
               </div>
             </div>
 
-            <Envio lan={locale} />
+            <Envio lan={locale} title={t("delivery")} />
           </div>
         </div>
         <div className="lg:w-3/5 flex">
@@ -134,7 +149,7 @@ const page = () => {
               );
             })}
           </div>
-          <div className="fixed right-6 w-14 flex-col gap-y-1 hidden lg:flex">
+          <div className="fixed right-6 w-14 flex-col gap-y-1 hidden lg:flex z-10">
             {data.images.map((image: image, index: number) => {
               return (
                 <button

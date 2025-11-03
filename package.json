@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@paypal/react-paypal-js": "^8.9.2",
     "next": "15.5.4",
     "next-intl": "^4.4.0",
     "react": "19.1.0",

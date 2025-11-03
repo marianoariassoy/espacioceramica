@@ -6,6 +6,14 @@ import localFont from "next/font/local";
 import { Metadata } from "next";
 import Header from "./header";
 import "./globals.css";
+import { CartProvider } from "@/context/CartContext";
+// import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
+const initialOptions = {
+  clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
+  currency: "USD",
+  intent: "capture",
+};
 
 const satoshiFont = localFont({
   src: [
@@ -67,8 +75,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         style={{ backgroundColor: "#f6f6f7" }}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          <main className="transition-all px-4">{children}</main>
+          <CartProvider>
+            <Header />
+            <main className="transition-all px-4">{children}</main>
+          </CartProvider>
         </NextIntlClientProvider>
       </body>
     </html>

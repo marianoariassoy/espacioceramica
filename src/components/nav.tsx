@@ -1,5 +1,4 @@
 "use client";
-
 import { Link, usePathname } from "@/i18n/navigation";
 import Lan from "@/components/lan";
 import { useTranslations } from "next-intl";

@@ -1,5 +1,4 @@
 "use client";
-
 import { useLocale } from "next-intl";
 import Item from "@/components/item";
 import Footer from "@/components/footer";

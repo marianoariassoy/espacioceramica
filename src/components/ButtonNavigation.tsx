@@ -1,0 +1,14 @@
+import { Link } from "@/i18n/navigation";
+
+const button = ({ label, href }: { label: string; href: string }) => {
+  return (
+    <Link
+      href={href}
+      className="bg-black text-white p-2 uppercase font-medium text-sm border hover:bg-white hover:text-black flex justify-center items-center"
+    >
+      {label}
+    </Link>
+  );
+};
+
+export default button;

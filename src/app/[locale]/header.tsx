@@ -1,10 +1,9 @@
 "use client";
-
 import { Link, usePathname } from "@/i18n/navigation";
 import Nav from "@/components/nav";
 import Lan from "@/components/lan";
-// import Cart from "@/components/cart";
 import { useTranslations } from "next-intl";
+import CartButton from "../../components/CartButton";
 
 const header = () => {
   const pathname = usePathname();
@@ -24,7 +23,7 @@ const header = () => {
 
   return (
     <header
-      className="sticky py-2 top-0 z-30 w-full flex items-center justify-between px-4 bg-[#f6f6f7]"
+      className="sticky py-2 top-0 z-40 w-full flex items-center justify-between px-4 bg-[#f6f6f7]"
       id="header"
     >
       <div className="flex-1">
@@ -43,7 +42,8 @@ const header = () => {
         <span className="hidden lg:block">
           <Lan />
         </span>
-        <div>{t("cart")}</div>
+
+        <CartButton title={t("cart")} />
       </div>
 
       <Nav />

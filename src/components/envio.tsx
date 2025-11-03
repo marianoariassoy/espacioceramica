@@ -1,8 +1,7 @@
 "use client";
-
 import { useState } from "react";
 
-const envio = ({ lan }: { lan: string }) => {
+const envio = ({ lan, title }: { lan: string; title: string }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -11,7 +10,7 @@ const envio = ({ lan }: { lan: string }) => {
         className="flex gap-4 justify-between cursor-pointer hover:opacity-70"
         onClick={() => setOpen(!open)}
       >
-        <div>{lan === "es" ? "Detalles del envío" : "Delivery details"}</div>
+        <div>{title}</div>
         <div>{open ? "-" : "+"}</div>
       </div>
 
