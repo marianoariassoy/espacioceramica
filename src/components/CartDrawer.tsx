@@ -21,7 +21,7 @@ export default function CartDrawer() {
 
   const checkout = () => {
     closeDrawer();
-    router.push("/carrito");
+    router.push("/checkout");
   };
 
   return (

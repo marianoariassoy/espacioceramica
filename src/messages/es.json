@@ -26,11 +26,29 @@
     "checkout": "Finalizar pedido",
     "withoutStock": "Sin stock",
     "delivery": "Detalles de entrega",
+    "deliveryType": "Forma de entrega",
+    "payType": "Forma de pago",
+    "bankTransfer": "Transferencia bancaria",
+    "paypal": "Pagar con PayPal",
     "email": "Tu email",
     "emailPlaceholder": "Dirección de email",
     "step": "Continuar",
-    "paypal": "Pagar con PayPal",
     "notifications": "Recibirás recibos y notificaciones en esta dirección de email",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "endPurchase": "Finalizar compra",
+    "thanks": "Gracias por tu compra.\nTe responderemos lo antes posible."
+  },
+  "Contact": {
+    "title": "Contacto",
+    "name": "Nombre y apellido",
+    "email": "Email",
+    "phone": "Teléfono",
+    "address": "Dirección",
+    "city": "Ciudad",
+    "state": "Estado",
+    "zip": "Código postal",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "success": "Gracias por contactarnos. Le responderemos lo antes posible."
   }
 }

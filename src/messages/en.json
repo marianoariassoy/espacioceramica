@@ -26,11 +26,29 @@
     "checkout": "Checkout",
     "withoutStock": "Out of stock",
     "delivery": "Delivery Details",
+    "deliveryType": "Delivery Type",
+    "payType": "Payment Type",
     "email": "Your email",
     "emailPlaceholder": "Email address",
     "step": "Continue",
+    "bankTransfer": "Bank Transfer",
     "paypal": "Pay with PayPal",
     "notifications": "You'll receive receipts and notifications at this email",
-    "close": "Close"
+    "close": "Close",
+    "endPurchase": "End Purchase",
+    "thanks": "Thanks for your purchase. We'll get back to you as soon as possible."
+  },
+  "Contact": {
+    "title": "Contact",
+    "name": "Name and surname",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "address": "Address",
+    "city": "City",
+    "state": "State",
+    "zip": "Zip code",
+    "send": "Send",
+    "success": "Thanks for contacting us. We'll get back to you as soon as possible."
   }
 }

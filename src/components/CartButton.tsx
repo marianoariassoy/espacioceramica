@@ -1,20 +1,24 @@
 "use client";
-import { Link } from "@/i18n/navigation";
 import { useCart } from "@/context/CartContext";
 
 const cart = ({ title }: { title: string }) => {
   const { items } = useCart();
 
+  const openCart = () => {
+    const cart = document.querySelector("#cart") as HTMLElement;
+    if (!cart) return;
+    cart.style.right = "0";
+  };
   return (
     <div className="flex items-center gap-x-1">
       {items.length > 0 ? (
-        <Link
-          href="/carrito"
+        <button
           aria-label="Ver carrito"
-          className="hover:underline"
+          className="hover:underline cursor-pointer"
+          onClick={openCart}
         >
           {title}
-        </Link>
+        </button>
       ) : (
         <span>{title}</span>
       )}
