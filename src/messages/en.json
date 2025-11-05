@@ -36,7 +36,8 @@
     "notifications": "You'll receive receipts and notifications at this email",
     "close": "Close",
     "endPurchase": "End Purchase",
-    "thanks": "Thanks for your purchase. We'll get back to you as soon as possible."
+    "thanks": "Thanks for your purchase. We'll get back to you as soon as possible.",
+    "required": "This field is required"
   },
   "Contact": {
     "title": "Contact",

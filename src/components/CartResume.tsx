@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { useCart } from "@/context/CartContext";
 import { useTranslations } from "next-intl";
 import Image from "@/components/Image";
+import { formatPrice } from "@/utils/formatPrice";
 
 const CartResume = () => {
   const { items, total, removeItem, incrementQuantity, decrementQuantity } =
@@ -28,19 +29,28 @@ const CartResume = () => {
                 <h4 className="text-sm">{item.author}</h4>
               </div>
             </div>
-            <div className="flex flex-col items-end">
-              <span>${item.price_ars * item.quantity}</span>
+            <div className="flex flex-col gap-y-1 items-end">
+              <div className="leading-4 flex flex-col items-end mb-1">
+                <span>
+                  {formatPrice(item.price_ars * item.quantity, "ARS")}
+                </span>
+                <span>
+                  {formatPrice(item.price_usd * item.quantity, "USD")}
+                </span>
+              </div>
               <div className="flex gap-x-1">
-                <span className="mr-1"> x{item.quantity}</span>
+                <span className="bg-black text-white p-2 uppercase rounded-full w-6 h-6 justify-center items-center flex text-sm hover:bg-black/70 cursor-pointer font-medium">
+                  {item.quantity}
+                </span>
                 <button
                   onClick={() => decrementQuantity(item.id)}
-                  className="bg-black text-white p-2 uppercase rounded-full w-6 h-6 justify-center items-center flex text-sm hover:bg-black/70 cursor-pointer font-medium"
+                  className="bg-black/30 text-white p-2 uppercase rounded-full w-6 h-6 justify-center items-center flex text-sm hover:bg-black cursor-pointer font-medium"
                 >
                   -
                 </button>
                 <button
                   onClick={() => incrementQuantity(item.id)}
-                  className="bg-black text-white p-2 uppercase rounded-full w-6 h-6 justify-center items-center flex text-sm hover:bg-black/70 cursor-pointer font-medium"
+                  className="bg-black/30 text-white p-2 uppercase rounded-full w-6 h-6 justify-center items-center flex text-sm hover:bg-black cursor-pointer font-medium"
                 >
                   +
                 </button>
@@ -56,7 +66,7 @@ const CartResume = () => {
         ))}
         <div className="flex justify-between border-t border-b border-gray-300 py-4 font-medium mt-8">
           <span>{t("total")}</span>
-          <span>${total}</span>
+          <span>{formatPrice(total)}</span>
         </div>
       </div>
     </div>

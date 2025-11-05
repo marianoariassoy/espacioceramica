@@ -36,7 +36,8 @@
     "notifications": "Recibirás recibos y notificaciones en esta dirección de email",
     "close": "Cerrar",
     "endPurchase": "Finalizar compra",
-    "thanks": "Gracias por tu compra.\nTe responderemos lo antes posible."
+    "thanks": "Gracias por tu compra.\nTe responderemos lo antes posible.",
+    "required": "Este dato es obligatorio"
   },
   "Contact": {
     "title": "Contacto",

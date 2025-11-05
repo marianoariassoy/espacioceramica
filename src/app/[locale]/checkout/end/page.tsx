@@ -7,7 +7,7 @@ import Loader from "@/components/loading";
 
 const page = () => {
   const t = useTranslations("Cart");
-  const { items, clearCart, total } = useCart();
+  const { items, clearCart, total, buyer } = useCart();
   const sent = useRef(false);
   const [sendingMail, setSendingMail] = useState(true);
   const [error, setError] = useState("");
@@ -18,8 +18,7 @@ const page = () => {
 
     if (items.length === 0) return;
     const handleSend = async () => {
-      const buyer = { name: "Mariano Arias", email: "hola@marianoarias.soy" };
-      const payment = "PayPal";
+      const payment = buyer.pay_type;
 
       const res = await fetch("/api/send-mail", {
         method: "POST",
@@ -42,7 +41,7 @@ const page = () => {
   }, []);
 
   return (
-    <section className="max-w-5xl m-auto mt-8 font-medium text-lg text-center whitespace-break-spaces">
+    <section className="max-w-5xl m-auto mt-8 font-medium text-lg text-center whitespace-break-spaces leading-5">
       {t("thanks")}
       {sendingMail ? (
         <div className="w-full">

@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { formatPrice } from "@/utils/formatPrice";
 
 export async function POST(req: Request) {
   try {
@@ -20,16 +21,24 @@ export async function POST(req: Request) {
       const itemsHtml = items
         .map(
           (i: any) =>
-            `<tr><td>${i.title}</td><td>${i.quantity}</td><td>$${
-              i.price_ars
-            }</td><td>$${i.price_ars * i.quantity}</td></tr>`
+            `<tr><td>${i.title}</td><td>${i.quantity}</td><td>${formatPrice(
+              i.price_ars,
+              "ARS"
+            )}</td><td>${formatPrice(
+              i.price_ars * i.quantity,
+              "ARS"
+            )}</td></tr>`
         )
         .join("");
 
-      const html = `
-      <h3>Gracias por tu compra, ${buyer.name}!</h3>
-      <p><b>Forma de pago:</b> ${payment}</p>
-      <p><b>Email:</b> ${buyer.email}</p>
+      const html = `<div style="background-color: #f6f6f7; padding: 20px; color: #000000;">
+      <h3>¡Gracias por tu compra, ${buyer.name}!</h3>
+      <p><b>Forma de pago:</b> ${payment} <br />
+      <b>Email:</b> ${buyer.email} <br />
+      <b>Teléfono:</b> ${buyer.phone} <br />
+      <b>Dirección:</b> ${buyer.address} <br />
+      <b>Ciudad:</b> ${buyer.city} <br />
+      <b>Código postal:</b> ${buyer.zip}</p>
       <hr />
       <h3>Resumen de tu pedido:</h3>
       <table border="1" cellpadding="6" cellspacing="0">
@@ -38,19 +47,32 @@ export async function POST(req: Request) {
         </thead>
         <tbody>${itemsHtml}</tbody>
       </table>
-      <h3>Total: $${total}</h3>
-    `;
+      <h3>Total: ${formatPrice(total, "ARS")}</h3>
+      <hr />
+      <h3>Datos bancarios:</h3>
+      <p>Entidad Banco del Chubut S.A. <br />
+CBU 0830010234003144210017  <br />
+Titular Lopez Fernando Gabriel  <br />
+Tipo y N° de cuenta CA $ 01000031442100106  <br />
+Alias proyectoliebre  <br />
+CUIT 20278809723 </p>
+<hr />
+<p>Espacio Cerámica <br />
+@espacioceramica <br />
+espaciocerámica@gmail.com <br />
+Chubut, Patagonia Argentina.</p>
+</div>`;
 
       await transporter.sendMail({
-        from: `"Mi Tienda" <${process.env.SMTP_USER}>`,
+        from: `"Espacio Cerámica" <${process.env.SMTP_USER}>`,
         to: buyer.email,
         subject: "Confirmación de compra",
         html,
       });
 
       await transporter.sendMail({
-        from: `"Mi Tienda" <${process.env.SMTP_USER}>`,
-        to: "tutienda@gmail.com",
+        from: `"Espacio Cerámica" <${process.env.SMTP_USER}>`,
+        to: "hola@marianoarias.soy",
         subject: `Nueva compra de ${buyer.name}`,
         html,
       });

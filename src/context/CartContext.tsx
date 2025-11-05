@@ -1,53 +1,50 @@
 "use client";
 import { createContext, useContext, useState, useEffect } from "react";
-
-interface image {
-  id: number;
-  image: string;
-}
-
-export type CartItem = {
-  id: number;
-  image: string;
-  title: string;
-  text: string;
-  text_2: string;
-  size: string;
-  price_ars: number;
-  price_usd: number;
-  author: string;
-  availability: boolean;
-  images: image[];
-  quantity: number;
-  stock: number;
-  slug: string;
-};
+import { ItemType, InfoType } from "@/types/types";
 
 type CartContextType = {
-  items: CartItem[];
-  addItem: (item: CartItem) => void;
+  items: ItemType[];
+  addItem: (item: ItemType) => void;
   removeItem: (id: number) => void;
   clearCart: () => void;
   decrementQuantity: (id: number) => void;
   incrementQuantity: (id: number) => void;
   total: number;
+  setBuyer: (info: InfoType) => void;
+  buyer: InfoType;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [items, setItems] = useState<CartItem[]>([]);
+  const [items, setItems] = useState<ItemType[]>([]);
+  const [buyer, setBuyer] = useState<InfoType>({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    city: "",
+    zip: "",
+    delv_type: "",
+    pay_type: "",
+  });
 
   useEffect(() => {
-    const stored = localStorage.getItem("espacioceramica-cart");
-    if (stored) setItems(JSON.parse(stored));
+    const storedCart = localStorage.getItem("espacioceramica-cart");
+    const storedBuyer = localStorage.getItem("espacioceramica-buyer");
+    if (storedCart) setItems(JSON.parse(storedCart));
+    if (storedBuyer) setBuyer(JSON.parse(storedBuyer));
   }, []);
 
   useEffect(() => {
     localStorage.setItem("espacioceramica-cart", JSON.stringify(items));
   }, [items]);
 
-  const addItem = (item: CartItem) => {
+  useEffect(() => {
+    localStorage.setItem("espacioceramica-buyer", JSON.stringify(buyer));
+  }, [buyer]);
+
+  const addItem = (item: ItemType) => {
     const existing = items.find((p) => p.id === item.id);
     if (existing) {
       const quantity = items.find((p) => p.id === item.id)?.quantity;
@@ -96,6 +93,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
         total,
         decrementQuantity,
         incrementQuantity,
+        setBuyer,
+        buyer,
       }}
     >
       {children}

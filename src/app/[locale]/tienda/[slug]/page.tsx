@@ -8,32 +8,13 @@ import { useParams } from "next/navigation";
 import Loader from "@/components/loading";
 import Image from "@/components/Image";
 import { useCart } from "@/context/CartContext";
-
-interface image {
-  id: number;
-  image: string;
-}
-
-interface data {
-  id: number;
-  image: string;
-  title: string;
-  text: string;
-  text_2: string;
-  size: string;
-  price_ars: number;
-  price_usd: number;
-  author: string;
-  availability: boolean;
-  images: image[];
-  stock: number;
-  slug: string;
-}
+import { ItemType, ImageType } from "@/types/types";
+import { formatPrice } from "@/utils/formatPrice";
 
 const page = () => {
   const locale = useLocale();
   const t = useTranslations("Cart");
-  const [data, setData] = useState<data>();
+  const [data, setData] = useState<ItemType>();
   const [loading, setLoading] = useState(true);
   const [goToImage, setGoToImage] = useState(1);
   const { slug } = useParams();
@@ -94,7 +75,7 @@ const page = () => {
     image.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleAddToCart = (data: data) => {
+  const handleAddToCart = (data: ItemType) => {
     addItem({ ...data, quantity: 1 });
     const cart = document.querySelector("#cart") as HTMLElement;
     if (!cart) return;
@@ -112,7 +93,11 @@ const page = () => {
             <Info title={t("description")} description={data.text} />
             <Info
               title={t("price")}
-              description={"ARS " + data.price_ars + " / USD " + data.price_usd}
+              description={
+                formatPrice(data.price_ars, "ARS") +
+                " / " +
+                formatPrice(data.price_usd, "USD")
+              }
             />
             <Info title={t("author")} description={data.author} />
             <Info2
@@ -141,7 +126,7 @@ const page = () => {
         </div>
         <div className="lg:w-3/5 flex">
           <div className="flex-1 flex flex-col gap-y-2 lg:pr-30">
-            {data.images.map((image: image, index: number) => {
+            {data.images.map((image: ImageType, index: number) => {
               return (
                 <div id={`image-${index + 1}`} key={image.id}>
                   <Image src={image.image} alt={data.title} />
@@ -150,7 +135,7 @@ const page = () => {
             })}
           </div>
           <div className="fixed right-6 w-14 flex-col gap-y-1 hidden lg:flex z-10">
-            {data.images.map((image: image, index: number) => {
+            {data.images.map((image: ImageType, index: number) => {
               return (
                 <button
                   key={image.id}
