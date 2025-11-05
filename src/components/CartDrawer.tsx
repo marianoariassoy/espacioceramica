@@ -14,11 +14,6 @@ export default function CartDrawer() {
     cart.style.right = "-100%";
   };
 
-  const continueShopping = () => {
-    closeDrawer();
-    router.push("/tienda");
-  };
-
   const checkout = () => {
     closeDrawer();
     router.push("/checkout");
@@ -41,7 +36,7 @@ export default function CartDrawer() {
       <CartResume />
 
       <div className="flex flex-col gap-y-2">
-        <ButtonSubmit label={t("continue")} onClick={continueShopping} />
+        <ButtonSubmit label={t("continue")} onClick={closeDrawer} />
         <ButtonSubmit label={t("checkout")} onClick={checkout} />
       </div>
     </div>
