@@ -120,7 +120,8 @@ const Page = () => {
             <div>
               <div className="flex items-center gap-x-2">
                 <button
-                  onClick={() => setPayType("bankTransfer")}
+                  onClick={() => setPayType("Transferencia bancaria")}
+                  type="button"
                   className={`w-3 h-3 rounded-full hover:bg-black/100 cursor-pointer ${
                     payType === "Transferencia bancaria"
                       ? "bg-black/100"
@@ -134,6 +135,7 @@ const Page = () => {
               <div className="flex items-center gap-x-2">
                 <button
                   onClick={() => setPayType("paypal")}
+                  type="button"
                   className={`w-3 h-3 rounded-full hover:bg-black/100 cursor-pointer ${
                     payType === "paypal" ? "bg-black/100" : "bg-black/10"
                   }`}
