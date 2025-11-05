@@ -40,6 +40,13 @@ const page = () => {
     clearCart();
   }, []);
 
+  if (error)
+    return (
+      <section className="text-red-500 max-w-5xl m-auto mt-8 font-medium text-lg text-center whitespace-break-spaces leading-5">
+        {error}
+      </section>
+    );
+
   return (
     <section className="max-w-5xl m-auto mt-8 font-medium text-lg text-center whitespace-break-spaces leading-5">
       {t("thanks")}
@@ -48,7 +55,6 @@ const page = () => {
           <Loader />
         </div>
       ) : null}
-      {error && <p className="text-red-500 text-center">{error}</p>}
     </section>
   );
 };
