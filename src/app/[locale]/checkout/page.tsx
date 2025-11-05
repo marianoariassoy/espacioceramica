@@ -14,7 +14,7 @@ const Page = () => {
   const c = useTranslations("Contact");
   const { setBuyer } = useCart();
   const router = useRouter();
-  const { items } = useCart();
+  const { items, buyer } = useCart();
 
   const Label = ({ title }: { title: string }) => {
     return (
@@ -58,7 +58,7 @@ const Page = () => {
             <div className="flex flex-col gap-y-1">
               <Label title={c("email")} />
               <input
-                type="email"
+                value={buyer.email}
                 placeholder={t("emailPlaceholder")}
                 className="bg-black/10 p-2 h-12 text-sm"
                 {...register("email", {
@@ -82,6 +82,7 @@ const Page = () => {
               <Label title={c("name")} />
               <input
                 type="text"
+                value={buyer.name}
                 {...register("name", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm"
               />
@@ -89,24 +90,28 @@ const Page = () => {
               <Label title={c("phone")} />
               <input
                 type="text"
+                value={buyer.phone}
                 {...register("phone", {})}
                 className="bg-black/10 p-2 h-12 text-sm"
               />
               <Error error={errors.phone} />
               <Label title={c("address")} />
               <input
+                value={buyer.address}
                 {...register("address", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm uppercase"
               />
               <Error error={errors.address} />
               <Label title={c("city")} />
               <input
+                value={buyer.city}
                 {...register("city", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm uppercase"
               />
               <Error error={errors.city} />
               <Label title={c("zip")} />
               <input
+                value={buyer.zip}
                 {...register("zip", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm uppercase"
               />
