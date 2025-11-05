@@ -65,8 +65,11 @@ const CartResume = () => {
           </article>
         ))}
         <div className="flex justify-between border-t border-b border-gray-300 py-4 font-medium mt-8">
-          <span>{t("total")}</span>
-          <span>{formatPrice(total)}</span>
+          <div>{t("total")}</div>
+          <div className="flex flex-col leading-4">
+            <span>{formatPrice(total, "ARS")}</span>
+            <span>{formatPrice(total, "USD")}</span>
+          </div>
         </div>
       </div>
     </div>

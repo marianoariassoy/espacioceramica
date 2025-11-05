@@ -78,7 +78,7 @@ const page = () => {
           id="article-0"
         >
           <div className="lg:w-1/4"></div>
-          <div className="lg:w-1/2 aspect-[5/7]">
+          <div className="lg:w-1/2">
             <Image src="/images/hornos.jpg" alt="Hornos" />
           </div>
           <div className="text-sm lg:w-1/4 lg:pr-12">

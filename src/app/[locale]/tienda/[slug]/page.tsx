@@ -110,7 +110,7 @@ const page = () => {
               <div className="w-2/3 font-[--lastik-regular]">
                 {data.stock > 0 ? (
                   <button
-                    className="cursor-pointer bg-black text-white p-3 border border-black hover:text-black hover:bg-white uppercase"
+                    className="cursor-pointer uppercase hover:underline"
                     onClick={() => handleAddToCart(data)}
                   >
                     {t("add")}

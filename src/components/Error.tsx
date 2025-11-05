@@ -8,7 +8,7 @@ const Error = ({ error }: ErrorProps) => {
   if (!error) return null;
 
   return (
-    <div className="text-sm font-medium text-red-500">{error.message} 👆🏻</div>
+    <div className="text-sm font-medium opacity-60">* {error.message}</div>
   );
 };
 
