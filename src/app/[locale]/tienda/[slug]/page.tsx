@@ -110,7 +110,7 @@ const page = () => {
               <div className="w-2/3 font-[--lastik-regular]">
                 {data.stock > 0 ? (
                   <button
-                    className="cursor-pointer uppercase hover:underline"
+                    className="cursor-pointer uppercase underline font-base hover:opacity-50"
                     onClick={() => handleAddToCart(data)}
                   >
                     {t("add")}

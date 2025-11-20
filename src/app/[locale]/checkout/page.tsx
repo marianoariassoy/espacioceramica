@@ -165,7 +165,7 @@ const Page = () => {
           </div>
 
           <button
-            className="bg-black text-white p-2 uppercase font-medium text-sm border hover:bg-white hover:text-black h-12 cursor-pointer flex justify-center items-center"
+            className="uppercase cursor-pointer underline font-base hover:opacity-50 font-[--lastik-regular] mb-8"
             type="submit"
           >
             {t("endPurchase")}

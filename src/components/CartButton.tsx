@@ -23,9 +23,7 @@ const cart = ({ title }: { title: string }) => {
         <span>{title}</span>
       )}
 
-      <span className="bg-black text-white w-5 text-xs flex justify-center items-center h-5 rounded-full">
-        {items.length}
-      </span>
+      <span>/{items.length}/</span>
     </div>
   );
 };

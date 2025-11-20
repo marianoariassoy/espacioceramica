@@ -178,7 +178,7 @@ const page = () => {
                 )}
                 {item.image_2 && (
                   <button
-                    className="cursor-pointer"
+                    className="cursor-pointer aspect-[5/7]"
                     onClick={() => setFile(item.image_2)}
                   >
                     <Image src={item.image_2} alt={item.title} />
