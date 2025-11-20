@@ -16,6 +16,8 @@ interface image {
 interface data {
   id: string;
   title: string;
+  text: string;
+  image: string;
   images: image[];
 }
 
@@ -60,7 +62,7 @@ const page = () => {
   return (
     <section>
       <div className="fixed top-12 w-full bg-[#f6f6f7] py-2 z-10">
-        {data.map((item: data, index: number) => {
+        {data.slice(1).map((item: data, index: number) => {
           return (
             <Item
               key={item.id}
@@ -79,66 +81,21 @@ const page = () => {
         >
           <div className="lg:w-1/4"></div>
           <div className="lg:w-1/2">
-            <img src="/images/hornos.jpg" alt="Hornos" className="w-full" />
-          </div>
-          <div className="text-sm lg:w-1/4 lg:pr-12">
-            {locale === "es" ? (
-              <p>
-                Estando en Buenos Aires compartimos tres años junto a Im,
-                maestro y artesano coreano quien nos introdujo a dos tipos de
-                hornos de origen Oriental, el Anagama y el Noborigama, que
-                establecen una forma de apro- ximación muy específica al oficio
-                en la que desarrolla- mos una cerámica de raíz, evitando
-                procesos indus- triales. Junto a él aprendimos a construirlos, a
-                prepa- rarlos para la quema y a limpiarlos. Fabricamos nues- tra
-                propia herramienta de trabajo y también la cuida- mos.
-                <br />
-                <br />
-                Tanto el Anagama como el Noborigama, donde la diferencia
-                elemental radica en el número de cámaras y la proximidad de la
-                ceniza a las piezas, permiten una horneada a alta temperatura,
-                más allá de los 1200 °C. El tiempo del fuego requiere de una
-                preparación previa. Encendemos los hornos una o dos veces al
-                año, ardiendo por 100 horas, y retirando las piezas cinco días
-                después, el tiempo en que tarda el horno en enfriarse. Este
-                diálogo entre la materialidad y el proceso de quema queda
-                grabado en la cerámica y define su identidad y carácter, tanto
-                el material como nosotros mismos somos sensibilizados por el
-                proceso de fuego.
-              </p>
-            ) : (
-              <p>
-                Sitting in Buenos Aires, we share three years with Im, master
-                and coreano artist who introduced us to two types of Oriental
-                horns, the Anagama and the Noborigama, which establish a form of
-                approximation very specific to the office in which we develop a
-                ceramic root, avoiding industrial processes. Together with him,
-                we learn to build them, to prepare them for firing and to clean
-                up them. We also make our own tool of work and also care for
-                them.
-                <br />
-                <br />
-                Both the Anagama and the Noborigama, where the elemental
-                difference originates in the number of cameras and the proximity
-                of the cinnabar to the pieces, allow a fireda at high
-                temperatures, beyond the 1200 °C. The time of the fire requires
-                a preparation. We heat the horns once a year, burning for 100
-                hours, and removing the pieces five days after, the time it
-                takes the fire to dry. This dialogue between materiality and the
-                process of quema that is recorded in the ceramics and defines
-                its identity and character, both the material and us ourselves
-                are sensitive to the process of fire.
-              </p>
+            {data[0].image && (
+              <img src={data[0].image} alt="Hornos" className="w-full" />
             )}
+          </div>
+          <div className="text-sm lg:w-1/4 lg:pr-12 whitespace-break-spaces">
+            {data[0].text}
           </div>
         </article>
 
-        {data.map((item: data, index: number) => {
+        {data.slice(1).map((item: data, index: number) => {
           return (
             <article
               key={item.id}
               className="flex flex-col lg:flex-row gap-4 pt-20"
-              id={`article-${index}`}
+              id={`article-${index + 1}`}
             >
               <div className="lg:w-1/4">
                 <h2 className="text-sm font-[--lastik-regular] uppercase">

@@ -61,18 +61,13 @@ const page = () => {
   return (
     <section>
       <div className="fixed top-12 w-full py-2 flex flex-col bg-[#f6f6f7] z-10">
-        <Item
-          title="ESPACIO CERÁMICA"
-          active={article === "#article-0"}
-          action={() => goTo("#article-0")}
-        />
         {data.map((item: data, index: number) => {
           return (
             <Item
               key={item.id}
               title={item.title}
-              active={article === "#article-" + (index + 1)}
-              action={() => goTo("#article-" + (index + 1))}
+              active={article === "#article-" + index}
+              action={() => goTo("#article-" + index)}
             />
           );
         })}
@@ -84,78 +79,24 @@ const page = () => {
           id="article-0"
         >
           <div className="lg:w-1/4">
-            <h2 className="text-sm font-[--lastik-regular]">
-              ESPACIO CERÁMICA
+            <h2 className="text-sm font-[--lastik-regular] uppercase">
+              {data[0].title}
             </h2>
           </div>
           <div className="lg:w-1/2 aspect-[5/7]">
             <Image
-              src="/images/acerca-de.jpg"
+              src={data[0].image}
               alt="Imagen Acerca de Espacio Cerámica"
             />
           </div>
-          <div className="text-sm lg:w-1/4 lg:pr-12">
-            {locale === "es" ? (
-              <p>
-                Espacio Cerámica es un taller de producción y experimentación de
-                cerámica a leña, fundado en 2008 por los ceramistas Victoria
-                Drisaldi (Buenos Aires) y Fernando López (Rosario). Actualmente
-                se encuentra en Gaiman, en la margen sur del río Chubut, una
-                región árida propia de la estepa patagónica. <br />
-                <br />
-                El taller nació en este entorno rural, donde también se
-                construyeron varios hornos a leña. De este modo, el trabajo se
-                centra especialmente en la quema en horno Anagama —de una sola
-                cámara y diseño oriental—, herramienta ancestral que se
-                resignifica desde una mirada contemporánea, revelando la huella
-                material y la cualidad expresiva de las piezas.
-                <br />
-                <br />
-                La ubicación geográfica del taller responde a esta búsqueda
-                estética consciente, basada en la comunión entre el oficio y el
-                modo de vida que posibilita el contexto. Así, la alfarería se
-                desarrolla con materiales locales, explorando pastas propias y
-                vidriados de alta temperatura a leña.
-                <br />
-                <br />
-                Lo que se crea en Espacio cerámica, nuestros objetos, son
-                producción directa del lugar habitado. Se trata de objetos que
-                sólo pueden haberse hecho acá, en esta región, en esta zona
-                geográfica donde el taller crece y funciona. Entendemos el
-                oficio en su relación inseparable con el territorio, como una
-                manera de habitarlo, cuidarlo, para trabajar la materia, y para
-                darle usos y significaciones nuevas.
-              </p>
-            ) : (
-              <p>
-                Espacio Cerámica is a ceramics workshop founded in 2008 by
-                Victoria Drisaldi and Fernando López. It is located in Gaiman,
-                in the southern part of the Chubut region, a region of great
-                natural beauty. The workshop was born in this environment, where
-                the workshops grow and operate. We understand the office in its
-                inseparable relationship with the territory, as a way of living,
-                caring, working the material, and giving it new meanings.
-                <br />
-                <br />
-                The geographic location of the workshop responds to this
-                conscious aesthetic search, based on the community between the
-                office and the way of life that allows the context. As such, the
-                workshop develops with local materials, exploring local pastures
-                and greenhouses of high temperature.
-                <br />
-                <br />
-                What we create in Espacio Cerámica, our objects, are direct
-                production of the place habited. We understand the office in its
-                inseparable relationship with the territory, as a way of living,
-                caring, working the material, and giving it new meanings.
-              </p>
-            )}
+          <div className="text-sm lg:w-1/4 lg:pr-12 whitespace-break-spaces">
+            {data[0].text}
           </div>
         </article>
 
         <Gallery section={1} setFile={setFile} />
 
-        {data.map((item: data, index: number) => {
+        {data.slice(1).map((item: data, index: number) => {
           return (
             <article
               className="flex flex-col lg:flex-row gap-4 pt-20"
