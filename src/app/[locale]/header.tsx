@@ -27,7 +27,7 @@ const header = () => {
       id="header"
     >
       <div>
-        {pathname !== "/" && pathname !== "/residencias" ? (
+        {pathname !== "/" ? (
           <Link href="/" className="hover:opacity-80 transition-all">
             <img src="/logo/logo.svg" alt="Logo" className="h-8" />
           </Link>
