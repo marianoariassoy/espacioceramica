@@ -26,27 +26,26 @@ const header = () => {
       className="sticky py-2 top-0 z-40 w-full flex items-center justify-between px-4 bg-[#f6f6f7]"
       id="header"
     >
-      <div className="flex-1">
-        <button className="hover:underline cursor-pointer" onClick={openMenu}>
-          {t("menu")}
-        </button>
-      </div>
-      <div className="">
+      <div>
         {pathname !== "/" && pathname !== "/residencias" ? (
           <Link href="/" className="hover:opacity-80 transition-all">
             <img src="/logo/logo.svg" alt="Logo" className="h-8" />
           </Link>
         ) : null}
       </div>
-      <div className="flex justify-end items-center gap-x-8 flex-1">
+      <div className="flex items-center gap-x-4 lg:gap-x-8">
+        <button className="hover:underline cursor-pointer" onClick={openMenu}>
+          {t("menu")}
+        </button>
+
         <span className="hidden lg:block">
           <Lan />
         </span>
 
         <CartButton title={t("cart")} />
-      </div>
 
-      <Nav />
+        <Nav />
+      </div>
     </header>
   );
 };

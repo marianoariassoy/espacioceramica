@@ -79,7 +79,7 @@ const page = () => {
         >
           <div className="lg:w-1/4"></div>
           <div className="lg:w-1/2">
-            <Image src="/images/hornos.jpg" alt="Hornos" />
+            <img src="/images/hornos.jpg" alt="Hornos" className="w-full" />
           </div>
           <div className="text-sm lg:w-1/4 lg:pr-12">
             {locale === "es" ? (
