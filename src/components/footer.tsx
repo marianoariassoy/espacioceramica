@@ -12,9 +12,9 @@ const footer = () => {
       <nav className="mb-20">
         <ul className="text-2xl font-[--lastik-regular] flex flex-col leading-6">
           <Link
-            href="/acerca-de"
+            href="/taller-estudio"
             className={`hover:underline uppercase ${
-              pathname === "/acerca-de" ? "underline" : ""
+              pathname === "/taller-estudio" ? "underline" : ""
             }`}
           >
             {t("title-1")}
@@ -36,9 +36,9 @@ const footer = () => {
             {t("title-3")}
           </Link>
           <Link
-            href="/hornos"
+            href="/nosotros"
             className={`hover:underline uppercase ${
-              pathname === "/hornos" ? "underline" : ""
+              pathname === "/nosotros" ? "underline" : ""
             }`}
           >
             {t("title-4")}

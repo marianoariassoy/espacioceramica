@@ -28,9 +28,9 @@ const Nav = () => {
         <nav>
           <ul className="text-2xl font-[--lastik-regular] flex flex-col leading-6">
             <Link
-              href="/acerca-de"
+              href="/taller-estudio"
               className={`hover:underline uppercase ${
-                pathname === "/acerca-de" ? "underline" : ""
+                pathname === "/taller-estudio" ? "underline" : ""
               }`}
               onClick={closeMenu}
             >
@@ -55,9 +55,9 @@ const Nav = () => {
               {t("title-3")}
             </Link>
             <Link
-              href="/hornos"
+              href="/nosotros"
               className={`hover:underline uppercase ${
-                pathname === "/hornos" ? "underline" : ""
+                pathname === "/nosotros" ? "underline" : ""
               }`}
               onClick={closeMenu}
             >

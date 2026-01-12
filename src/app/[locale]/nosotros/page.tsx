@@ -5,7 +5,6 @@ import Footer from "@/components/footer";
 import { useState, useEffect } from "react";
 import Modal from "@/components/modal";
 import Loader from "@/components/loading";
-import Gallery from "@/components/gallery";
 import Image from "@/components/Image";
 
 interface data {
@@ -25,8 +24,6 @@ const page = () => {
   const [article, setArticle] = useState("#article-0");
   const [file, setFile] = useState("");
   const apiURL = process.env.NEXT_PUBLIC_API_URL + "/about/" + locale;
-
-  console.log(data);
 
   useEffect(() => {
     async function getData() {
@@ -74,33 +71,11 @@ const page = () => {
       </div>
 
       <div className="flex flex-col mt-20">
-        <article
-          className="flex flex-col lg:flex-row gap-4 pt-20"
-          id="article-0"
-        >
-          <div className="lg:w-1/4">
-            <h2 className="text-sm font-[--lastik-regular] uppercase">
-              {data[0].title}
-            </h2>
-          </div>
-          <div className="lg:w-1/2 aspect-[5/7]">
-            <Image
-              src={data[0].image}
-              alt="Imagen Acerca de Espacio Cerámica"
-            />
-          </div>
-          <div className="text-sm lg:w-1/4 lg:pr-12 whitespace-break-spaces">
-            {data[0].text}
-          </div>
-        </article>
-
-        <Gallery section={1} setFile={setFile} />
-
-        {data.slice(1).map((item: data, index: number) => {
+        {data.map((item: data, index: number) => {
           return (
             <article
-              className="flex flex-col lg:flex-row gap-4 pt-20"
-              id={`article-${index + 1}`}
+              className="flex flex-col lg:flex-row gap-4 pt-20  scroll-mt-12"
+              id={`article-${index}`}
               key={item.id}
             >
               <div className="lg:w-1/4">

@@ -36,7 +36,6 @@ const page = () => {
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [authors, setAuthors] = useState<author[]>([]);
   const [loadingAuthors, setLoadingAuthors] = useState(true);
-
   const [dataFilter, setDataFilter] = useState<data[]>([]);
   const [category, setCategory] = useState(0);
   const [author, setAuthor] = useState(0);
@@ -45,13 +44,13 @@ const page = () => {
   const apiURL = process.env.NEXT_PUBLIC_API_URL + "/products/" + locale;
   const apiURLCategories =
     process.env.NEXT_PUBLIC_API_URL + "/categories/" + locale;
-  const apiURLAuthors = process.env.NEXT_PUBLIC_API_URL + "/authors";
+  const apiURLAuthors = process.env.NEXT_PUBLIC_API_URL + "/about/" + locale;
 
   useEffect(() => {
     async function getData() {
       try {
         const res = await fetch(apiURL);
-        if (!res.ok) throw new Error("Error al obtener datos");
+        if (!res.ok) throw new Error("Error al obtener datos de productos");
         const data = await res.json();
         setData(data);
       } catch (error) {
@@ -77,7 +76,7 @@ const page = () => {
     async function getAuthors() {
       try {
         const res = await fetch(apiURLAuthors);
-        if (!res.ok) throw new Error("Error al obtener datos");
+        if (!res.ok) throw new Error("Error al obtener datos de autores");
         const data = await res.json();
         setAuthors(data);
       } catch (error) {
