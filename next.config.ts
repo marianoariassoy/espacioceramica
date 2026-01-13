@@ -3,7 +3,12 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["backend.ligadecapitanes.com.ar"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "backend.ligadecapitanes.com.ar",
+      },
+    ],
   },
 };
 
