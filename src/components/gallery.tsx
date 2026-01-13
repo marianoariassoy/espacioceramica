@@ -36,7 +36,7 @@ const gallery = ({ section, setFile }: { section: number; setFile: any }) => {
       {data.map((item: data) => {
         return (
           <button
-            className="hover:opacity-80 cursor-pointer transition-opacity"
+            className="hover:opacity-80 cursor-pointer transition-opacity aspect-[5/7]"
             key={item.id}
             onClick={() => setFile(item.image)}
           >

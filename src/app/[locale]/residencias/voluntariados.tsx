@@ -48,8 +48,8 @@ const page = ({ locale }: { locale: string }) => {
       <div className="lg:w-1/2 text-sm">
         {data.map((item: data, index: number) => {
           return (
-            <article key={index} className="flex items-center gap-x-2">
-              <span className="uppercase">{item.name}</span>
+            <article key={index} className="flex items-center gap-x-1">
+              <span className="uppercase font-medium">{item.name}</span>
               <a
                 href={item.url}
                 target="_blank"
