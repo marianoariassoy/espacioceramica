@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import { Link, usePathname } from "@/i18n/navigation";
 import Lan from "@/components/lan";
 import { useTranslations } from "next-intl";
@@ -10,7 +11,6 @@ const Nav = () => {
   const closeMenu = () => {
     const main = document.querySelector("main") as HTMLElement;
     const nav = document.querySelector("#nav") as HTMLElement;
-
     if (main) {
       main.style.marginTop = "0";
     }
@@ -18,6 +18,26 @@ const Nav = () => {
       nav.style.top = "-650px";
     }
   };
+
+  useEffect(() => {
+    const main = document.querySelector("main") as HTMLElement;
+    const nav = document.querySelector("#nav") as HTMLElement;
+
+    const handleScroll = () => {
+      if (main) {
+        main.style.marginTop = "0";
+      }
+      if (nav) {
+        nav.style.top = "-650px";
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div
