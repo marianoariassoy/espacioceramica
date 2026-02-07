@@ -1,11 +1,11 @@
 "use client";
-
 import { useLocale } from "next-intl";
 import Item from "@/components/item";
 import { useState, useEffect } from "react";
 import Card from "@/components/card";
 import Footer from "@/components/footer";
 import Loader from "@/components/loading";
+import Filters from "@/components/Filters";
 
 interface data {
   id: number;
@@ -99,8 +99,8 @@ const page = () => {
         data.filter(
           (item: data) =>
             item.title.toLowerCase().includes(search.toLowerCase()) ||
-            item.size.toLowerCase().includes(search.toLowerCase())
-        )
+            item.size.toLowerCase().includes(search.toLowerCase()),
+        ),
       );
     }
     if (category) {
@@ -127,56 +127,19 @@ const page = () => {
 
   return (
     <section className="relative">
-      <div className="w-full sticky top-12 flex flex-col mb-40 bg-[#f6f6f7] py-2 z-10">
-        <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap">
-          <Item
-            title={locale === "es" ? "Ver Todo" : "All"}
-            active={category === 0 ? true : false}
-            action={() => setCategory(0)}
-          />
-          {loadingCategories
-            ? null
-            : categories.map((item: category) => {
-                return (
-                  <Item
-                    key={item.id}
-                    title={item.title}
-                    active={category === item.id ? true : false}
-                    action={() => setCategory(item.id)}
-                  />
-                );
-              })}
-        </div>
-        <div className="flex items-center gap-x-4 lg:gap-x-8 flex-wrap my-2 lg:my-0">
-          {loadingAuthors
-            ? null
-            : authors.map((item: author) => {
-                return (
-                  <Item
-                    key={item.id}
-                    title={item.title}
-                    active={author === item.id ? true : false}
-                    action={() => setAuthor(item.id)}
-                  />
-                );
-              })}
-        </div>
-        <div className="flex gap-x-2 text-sm font-[--lastik-regular]">
-          <div>
-            (
-            <input
-              type="text"
-              value={search}
-              className="border-b border-black lg:w-64 px-2 focus:outline-none"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            )
-          </div>
-          <button className="cursor-pointer hover:text-white hover:bg-black">
-            {locale === "es" ? "BUSCAR" : "SEARCH"}
-          </button>
-        </div>
-      </div>
+      {loadingCategories || loadingAuthors ? null : (
+        <Filters
+          lan={locale}
+          category={category}
+          categories={categories}
+          setCategory={setCategory}
+          setAuthor={setAuthor}
+          author={author}
+          authors={authors}
+          setSearch={setSearch}
+          search={search}
+        />
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-4 gap-y-8">
         {dataFilter.map((item: data) => (

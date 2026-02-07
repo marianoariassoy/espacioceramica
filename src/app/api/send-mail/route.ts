@@ -23,11 +23,11 @@ export async function POST(req: Request) {
           (i: any) =>
             `<tr><td>${i.title}</td><td>${i.quantity}</td><td>${formatPrice(
               i.price_ars,
-              "ARS"
+              "ARS",
             )}</td><td>${formatPrice(
               i.price_ars * i.quantity,
-              "ARS"
-            )}</td></tr>`
+              "ARS",
+            )}</td></tr>`,
         )
         .join("");
 
@@ -59,7 +59,7 @@ CUIT 20278809723 </p>
 <hr />
 <p>Espacio Cerámica <br />
 @espacioceramica <br />
-espaciocerámica@gmail.com <br />
+espacioceramicapatagonia@gmail.com <br />
 Chubut, Patagonia Argentina.</p>
 </div>`;
 
@@ -72,7 +72,7 @@ Chubut, Patagonia Argentina.</p>
 
       await transporter.sendMail({
         from: `"Espacio Cerámica" <${process.env.SMTP_USER}>`,
-        to: "hola@marianoarias.soy",
+        to: "espacioceramicapatagonia@gmail.com",
         subject: `Nueva compra de ${buyer.name}`,
         html,
       });

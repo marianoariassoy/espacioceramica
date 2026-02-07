@@ -79,7 +79,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <CartProvider>
             <Header />
             <CartDrawer />
-            <main className="transition-all px-4">{children}</main>
+            <main className="transition-all px-4"> {children} </main>
           </CartProvider>
         </NextIntlClientProvider>
       </body>
