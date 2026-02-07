@@ -26,10 +26,10 @@ const page = () => {
               @espacioceramica
             </a>
             <a
-              href="mailto:espaciocerámica@gmail.com"
+              href="mailto:espacioceramicapatagonia@gmail.com"
               className="hover:underline"
             >
-              espaciocerámica@gmail.com
+              espacioceramicapatagonia@gmail.com
             </a>
             <span>Chubut, Patagonia Argentina.</span>
           </div>
@@ -46,10 +46,10 @@ const page = () => {
               @proyecto___liebre
             </a>
             <a
-              href="mailto:fernandolopez@gmail.com"
+              href="mailto:espacioceramica27@gmail.com"
               className="hover:underline"
             >
-              fernandolopez@gmail.com
+              espacioceramica27@gmail.com
             </a>
             <span>Chubut, Patagonia Argentina.</span>
           </div>

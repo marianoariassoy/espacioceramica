@@ -67,10 +67,10 @@ const footer = () => {
               @espacioceramica
             </a>
             <a
-              href="mailto:espaciocerámica@gmail.com"
+              href="mailto:espacioceramicapatagonia@gmail.com"
               className="hover:underline"
             >
-              espaciocerámica@gmail.com
+              espacioceramicapatagonia@gmail.com
             </a>
           </div>
           <span>Chubut, Patagonia Argentina.</span>
@@ -87,10 +87,10 @@ const footer = () => {
               @proyecto___liebre
             </a>
             <a
-              href="mailto:fernandolopez@gmail.com"
+              href="mailto:espacioceramica27@gmail.com"
               className="hover:underline"
             >
-              fernandolopez@gmail.com
+              espacioceramica27@gmail.com
             </a>
           </div>
           <span>Chubut, Patagonia Argentina.</span>
