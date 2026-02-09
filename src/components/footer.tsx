@@ -54,7 +54,7 @@ const footer = () => {
         </ul>
       </nav>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-4 text-sm max-w-3xl leading-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-4 text-sm max-w-3xl leading-4">
         <div className="flex flex-col gap-y-2">
           <span>Espacio Cerámica </span>
           <div className="flex flex-col">

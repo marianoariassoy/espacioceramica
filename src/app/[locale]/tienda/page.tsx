@@ -1,6 +1,5 @@
 "use client";
 import { useLocale } from "next-intl";
-import Item from "@/components/item";
 import { useState, useEffect } from "react";
 import Card from "@/components/card";
 import Footer from "@/components/footer";
