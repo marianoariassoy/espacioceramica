@@ -1,3 +1,4 @@
+"use client";
 import Item from "@/components/item";
 import { useState, useEffect } from "react";
 
@@ -32,23 +33,12 @@ const Filters = ({
   setSearch: (search: string) => void;
   search: string;
 }) => {
-  const [open, setOpen] = useState(true);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 900) {
-        setOpen(true);
-      } else {
-        setOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const [open, setOpen] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth >= 900;
+    }
+    return true;
+  });
 
   const handleOpen = () => {
     setOpen(!open);
