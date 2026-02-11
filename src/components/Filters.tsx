@@ -1,6 +1,6 @@
 "use client";
 import Item from "@/components/item";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface category {
   id: number;
@@ -33,16 +33,38 @@ const Filters = ({
   setSearch: (search: string) => void;
   search: string;
 }) => {
-  const [open, setOpen] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth >= 900;
-    }
-    return true;
-  });
+  const [open, setOpen] = useState(true);
+  const lastScrollY = useRef(0);
 
-  const handleOpen = () => {
-    setOpen(!open);
-  };
+  // Set initial open state based on screen width
+  useEffect(() => {
+    const handleResize = () => {
+      setOpen(window.innerWidth >= 900);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Close filters on scroll (ONLY on mobile)
+  useEffect(() => {
+    const handleScroll = () => {
+      const isMobile = window.innerWidth < 900;
+      const currentScroll = window.scrollY;
+
+      if (isMobile && currentScroll > lastScrollY.current) {
+        setOpen(false);
+      }
+
+      lastScrollY.current = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleOpen = () => setOpen(!open);
 
   if (open) {
     return (
