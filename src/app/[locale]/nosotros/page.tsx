@@ -86,7 +86,7 @@ const page = () => {
               <div className="lg:w-1/2 grid grid-cols-1 lg:grid-cols-2 gap-2">
                 {item.image && (
                   <button
-                    className="cursor-pointer aspect-[5/7]"
+                    className="cursor-pointer aspect-5/7"
                     onClick={() => setFile(item.image)}
                   >
                     <Image src={item.image} alt={item.title} />
@@ -94,7 +94,7 @@ const page = () => {
                 )}
                 {item.image_2 && (
                   <button
-                    className="cursor-pointer aspect-[5/7]"
+                    className="cursor-pointer aspect-5/7"
                     onClick={() => setFile(item.image_2)}
                   >
                     <Image src={item.image_2} alt={item.title} />

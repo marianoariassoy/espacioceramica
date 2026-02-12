@@ -26,7 +26,18 @@ const Page = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<InfoType>();
+  } = useForm<InfoType>({
+    defaultValues: {
+      email: buyer.email,
+      name: buyer.name,
+      phone: buyer.phone,
+      address: buyer.address,
+      city: buyer.city,
+      zip: buyer.zip,
+      delv_type: buyer.delv_type,
+      pay_type: buyer.pay_type,
+    },
+  });
 
   const onSubmit: SubmitHandler<InfoType> = async (data) => {
     setBuyer({ ...data, pay_type: payType });
@@ -58,7 +69,6 @@ const Page = () => {
             <div className="flex flex-col gap-y-1">
               <Label title={c("email")} />
               <input
-                value={buyer.email}
                 placeholder={t("emailPlaceholder")}
                 className="bg-black/10 p-2 h-12 text-sm"
                 {...register("email", {
@@ -82,7 +92,6 @@ const Page = () => {
               <Label title={c("name")} />
               <input
                 type="text"
-                value={buyer.name}
                 {...register("name", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm"
               />
@@ -90,28 +99,24 @@ const Page = () => {
               <Label title={c("phone")} />
               <input
                 type="text"
-                value={buyer.phone}
                 {...register("phone", {})}
                 className="bg-black/10 p-2 h-12 text-sm"
               />
               <Error error={errors.phone} />
               <Label title={c("address")} />
               <input
-                value={buyer.address}
                 {...register("address", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm uppercase"
               />
               <Error error={errors.address} />
               <Label title={c("city")} />
               <input
-                value={buyer.city}
                 {...register("city", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm uppercase"
               />
               <Error error={errors.city} />
               <Label title={c("zip")} />
               <input
-                value={buyer.zip}
                 {...register("zip", { required: t("required") })}
                 className="bg-black/10 p-2 h-12 text-sm uppercase"
               />
@@ -161,7 +166,19 @@ const Page = () => {
                 </div>
               </div>
             )}
-            {payType === "paypal" && <div className="text-sm">Paypal</div>}
+            {payType === "paypal" && (
+              <div className="text-sm">
+                <strong>PayPal:</strong>{" "}
+                <a
+                  href="https://www.paypal.com/paypalme/DaianaLopez991"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:underline"
+                >
+                  @DaianaLopez991
+                </a>
+              </div>
+            )}
           </div>
 
           <button

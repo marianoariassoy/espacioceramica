@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useCart } from "@/context/CartContext";
 import Loader from "@/components/loading";
+import Footer from "@/components/footer";
 
 const page = () => {
   const t = useTranslations("Cart");
@@ -48,14 +49,17 @@ const page = () => {
     );
 
   return (
-    <section className="max-w-5xl m-auto mt-8 font-medium text-lg text-center whitespace-break-spaces leading-5">
-      {t("thanks")}
-      {sendingMail ? (
-        <div className="w-full">
-          <Loader />
-        </div>
-      ) : null}
-    </section>
+    <>
+      <section className="max-w-5xl m-auto mt-8 font-medium text-lg text-center whitespace-break-spaces leading-5">
+        {t("thanks")}
+        {sendingMail ? (
+          <div className="w-full">
+            <Loader />
+          </div>
+        ) : null}
+      </section>
+      <Footer />
+    </>
   );
 };
 

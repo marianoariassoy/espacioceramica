@@ -60,11 +60,11 @@ const page = () => {
             <img
               src="/logo/logo-residencias.png"
               alt="Logo"
-              className="w-2/3"
+              className="w-2/3 max-w-md"
             />
           </div>
         </div>
-        <div className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4] overflow-hidden">
+        <div className="flex lg:w-2/3 aspect-4/5 lg:aspect-5/4 overflow-hidden">
           <Image src={data[2].image} alt="Residencias" />
         </div>
       </div>

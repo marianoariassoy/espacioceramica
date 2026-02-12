@@ -37,13 +37,10 @@ const page = () => {
     <section className="flex flex-col items-start lg:items-center lg:flex-row gap-x-12 gap-y-8 pb-4 relative">
       <div className="lg:w-1/3">
         <div className="flex mt-20 lg:mt-0 lg:justify-center">
-          <img src="/logo/logo.png" alt="Logo" className="w-2/3" />
+          <img src="/logo/logo.png" alt="Logo" className="w-2/3 max-w-xl" />
         </div>
       </div>
-      <Link
-        href="/tienda"
-        className="flex lg:w-2/3 aspect-[4/5] lg:aspect-[5/4]"
-      >
+      <Link href="/tienda" className="flex lg:w-2/3 aspect-4/5 lg:aspect-5/4">
         <Image src={data[0].image} alt="Portada Espacio Cerámica" />
       </Link>
     </section>

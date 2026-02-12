@@ -1,8 +1,6 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Loader from "@/components/loading";
-import Image from "@/components/Image";
 
 interface data {
   id: string;
