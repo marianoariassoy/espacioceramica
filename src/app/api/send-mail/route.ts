@@ -31,7 +31,7 @@ export async function POST(req: Request) {
         )
         .join("");
 
-      const html = `<div style="background-color: #f6f6f7; padding: 20px; color: #000000;">
+      let html = `<div style="background-color: #f6f6f7; padding: 20px; color: #000000;">
       <h3>¡Gracias por tu compra, ${buyer.name}!</h3>
       <p><b>Forma de pago:</b> ${payment} <br />
       <b>Email:</b> ${buyer.email} <br />
@@ -49,19 +49,32 @@ export async function POST(req: Request) {
       </table>
       <h3>Total: ${formatPrice(total, "ARS")}</h3>
       <hr />
-      <h3>Datos bancarios:</h3>
+     `;
+
+      if (payment === "paypal")
+        html += `<h3>Datos PayPal:</h3> <p>Para pagar, haz click en este enlace: <a
+                  href="https://www.paypal.com/paypalme/DaianaLopez991"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:underline"
+                >
+                  @DaianaLopez991
+                </a></p>`;
+      else
+        html += ` <h3>Datos bancarios:</h3>
       <p>Entidad Banco del Chubut S.A. <br />
 CBU 0830010234003144210017  <br />
 Titular Lopez Fernando Gabriel  <br />
 Tipo y N° de cuenta CA $ 01000031442100106  <br />
 Alias proyectoliebre  <br />
 CUIT 20278809723 </p>
-<hr />
+`;
+
+      html += `<hr />
 <p>Espacio Cerámica <br />
 @espacioceramica <br />
 espacioceramicapatagonia@gmail.com <br />
-Chubut, Patagonia Argentina.</p>
-</div>`;
+Chubut, Patagonia Argentina.</p> </div>`;
 
       await transporter.sendMail({
         from: `"Espacio Cerámica" <${process.env.SMTP_USER}>`,
