@@ -5,6 +5,7 @@ import { formatPrice } from "@/utils/formatPrice";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    const orderNumber = Math.floor(Math.random() * 10000) + 10000;
     const { buyer, items, total, payment } = body;
 
     const transporter = nodemailer.createTransport({
@@ -33,6 +34,9 @@ export async function POST(req: Request) {
 
       let html = `<div style="background-color: #f6f6f7; padding: 20px; color: #000000;">
       <h3>¡Gracias por tu compra, ${buyer.name}!</h3>
+      <h2>Número de pedido: #${orderNumber}</h2>
+      <hr />
+      <h3>Detalles de la compra:</h3>
       <p><b>Forma de pago:</b> ${payment} <br />
       <b>Email:</b> ${buyer.email} <br />
       <b>Teléfono:</b> ${buyer.phone} <br />
