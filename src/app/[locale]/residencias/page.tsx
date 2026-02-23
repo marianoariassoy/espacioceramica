@@ -71,7 +71,7 @@ const page = () => {
 
       <div className="sticky top-10 flex flex-col w-full bg-[#f6f6f7] py-2 z-10">
         <Item
-          title={locale === "es" ? "Pasantías" : "Passants"}
+          title={locale === "es" ? "Pasantías" : "Internships"}
           active={article === "#pasantias"}
           action={() => goTo("#pasantias")}
         />

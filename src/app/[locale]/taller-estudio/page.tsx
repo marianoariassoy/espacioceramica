@@ -34,7 +34,7 @@ const page = () => {
           action={() => goTo("#espacio-ceramica")}
         />
         <Item
-          title={locale === "es" ? "Hornos" : "Horns"}
+          title={locale === "es" ? "Hornos" : "Kilns"}
           active={article === "#hornos"}
           action={() => goTo("#hornos")}
         />
@@ -45,9 +45,7 @@ const page = () => {
       </div>
 
       <Gallery section={1} setFile={setFile} />
-
       <Intro locale={locale} section={3} />
-
       <Hornos locale={locale} setFile={setFile} />
 
       <Footer />
